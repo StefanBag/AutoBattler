@@ -14,8 +14,15 @@ public class Level_Button : MonoBehaviour
         Image image = GetComponent<Image>();
         
     
-        bool found = transform.Find("Line").TryGetComponent<Image>(out Image Line);
-    
+        
+        Transform LineGO = transform.Find("Line");
+        Image Line = null;
+        bool found = false;
+        if(LineGO != null){ 
+            Line = LineGO.GetComponent<Image>();
+            found = true;
+        }
+
         Colors colors = transform.parent.GetComponent<Colors>();
         Character character = transform.parent.parent.parent.Find("Character").GetComponent<Character>();
         int characterLevel = character.level;
@@ -36,7 +43,7 @@ public class Level_Button : MonoBehaviour
             levelTextNum.color = colors.Complete;
             if(found)
             {
-                Line.color = colors.Active;
+                Line.color = colors.Complete;
             }
             button.interactable = true;
         }
@@ -44,6 +51,10 @@ public class Level_Button : MonoBehaviour
         {
             image.color = colors.Active;
             levelTextNum.color = colors.Active;
+            if(found)
+            {
+                Line.color = colors.Active;
+            }
             button.interactable = true;
         }
     }
