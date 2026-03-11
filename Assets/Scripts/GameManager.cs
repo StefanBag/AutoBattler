@@ -4,25 +4,24 @@ public class GameManager : MonoBehaviour
 {
     public GameObject PlayerHUD;
     public GameObject Text;
-    
+    bool active_message;
     void Start()
     {
-        StartCoroutine(HUDSequence());
+    
+        Text.transform.Find("Panel").Find("EnemyText").GetComponent<TextScript>().LoadText();
+        active_message = true;
     }
 
-    IEnumerator HUDSequence()
-    {
-        PlayerHUD.SetActive(false);   
-        Text.SetActive(true);       
-
-        yield return new WaitForSeconds(5f); 
-
-        PlayerHUD.SetActive(true);  
-        Text.SetActive(false);        
-    }
     
     void Update()
     {
         
+        if (active_message && Input.GetKey(KeyCode.Space) )
+        {
+            active_message = false;
+            PlayerHUD.SetActive(true);
+            Text.SetActive(false);
+        }
+
     }
 }

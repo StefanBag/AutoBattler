@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 
-public class Level_Button : MonoBehaviour
+public class LevelButton : MonoBehaviour
 {
     public int level = 0;
     TMP_Text levelTextNum;
@@ -23,11 +23,11 @@ public class Level_Button : MonoBehaviour
         Character character = transform.parent.parent.parent.Find("Character").GetComponent<Character>();
         characterLevel = character.level;
 
-        colorSquares();
+        ColorSquares();
         
     }
 
-    public void colorSquares()
+    public void ColorSquares()
     {
         Transform LineGO = transform.Find("Line");
         Image Line = null;
