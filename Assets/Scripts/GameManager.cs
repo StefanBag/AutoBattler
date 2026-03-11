@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
         PlayerHUD.SetActive(false);   
         Text.SetActive(true);       
 
-        yield return new WaitForSeconds(2f); 
+        yield return new WaitForSeconds(5f); 
 
         PlayerHUD.SetActive(true);  
         Text.SetActive(false);        

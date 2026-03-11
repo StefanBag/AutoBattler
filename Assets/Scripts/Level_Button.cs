@@ -7,16 +7,28 @@ using UnityEngine.SceneManagement;
 public class Level_Button : MonoBehaviour
 {
     public int level = 0;
-
+    TMP_Text levelTextNum;
+    Button button;
+    Image image;
+    Colors colors;
+    Character character;
+    int characterLevel;
     void Start()
     {
         
-        TMP_Text levelTextNum = transform.Find("LevelTextNum").GetComponent<TMP_Text>();
-        Button button = GetComponent<Button>();
-        Image image = GetComponent<Image>();
+        levelTextNum = transform.Find("LevelTextNum").GetComponent<TMP_Text>();
+        button = GetComponent<Button>();
+        image = GetComponent<Image>();
+        colors = transform.parent.GetComponent<Colors>();
+        Character character = transform.parent.parent.parent.Find("Character").GetComponent<Character>();
+        characterLevel = character.level;
+
+        colorSquares();
         
-    
-        
+    }
+
+    public void colorSquares()
+    {
         Transform LineGO = transform.Find("Line");
         Image Line = null;
         bool found = false;
@@ -25,9 +37,11 @@ public class Level_Button : MonoBehaviour
             found = true;
         }
 
-        Colors colors = transform.parent.GetComponent<Colors>();
-        Character character = transform.parent.parent.parent.Find("Character").GetComponent<Character>();
-        int characterLevel = character.level;
+        
+        if(LineGO != null){ 
+            Line = LineGO.GetComponent<Image>();
+            found = true;
+        }
 
         if (characterLevel < level)
         {
@@ -61,9 +75,8 @@ public class Level_Button : MonoBehaviour
         }
     }
 
-
     public void switch_scene()
     {
-        SceneManager.LoadScene("BattleScene");
+        SceneManager.LoadScene(level);
     }
 }
