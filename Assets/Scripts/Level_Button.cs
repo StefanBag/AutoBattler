@@ -1,6 +1,8 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class Level_Button : MonoBehaviour
 {
@@ -57,5 +59,11 @@ public class Level_Button : MonoBehaviour
             }
             button.interactable = true;
         }
+    }
+
+
+    public void switch_scene()
+    {
+        SceneManager.LoadScene("BattleScene");
     }
 }
