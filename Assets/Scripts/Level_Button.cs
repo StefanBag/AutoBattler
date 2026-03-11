@@ -74,9 +74,4 @@ public class Level_Button : MonoBehaviour
             button.interactable = true;
         }
     }
-
-    public void switch_scene()
-    {
-        SceneManager.LoadScene(level);
-    }
 }
