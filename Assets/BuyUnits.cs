@@ -6,6 +6,8 @@ public class BuyUnits : MonoBehaviour
     
     List<BenchSlot> bench_slots = new List<BenchSlot>();
     public GameObject unit;
+    public AudioSource audioSource;
+
     void Start()
     {
         GameObject Bench = transform.parent.parent.Find("FriendlyBench").gameObject;
@@ -24,9 +26,13 @@ public class BuyUnits : MonoBehaviour
 
     public void BuyUnit()
     {
-        BenchSlot available_slot = CheckAvailableSlots();
-        Debug.Log(available_slot);
-        available_slot.AddUnit(unit);
+        if(unit != null){
+            BenchSlot available_slot = CheckAvailableSlots();
+            Debug.Log(available_slot);
+            available_slot.AddUnit(unit);
+            audioSource.Play();
+            unit = null;
+        }
     }
 
     BenchSlot CheckAvailableSlots()
