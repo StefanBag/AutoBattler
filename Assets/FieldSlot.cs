@@ -1,8 +1,10 @@
 using UnityEngine;
 
-public class BenchSlot : Interactor
+public class FieldSlot : Interactor
 {
-    public GameObject unit;    Color ogColor;
+    
+
+    Color ogColor;
     Color newColor;
     new Renderer renderer;
     bool hovered = false;
@@ -20,6 +22,7 @@ public class BenchSlot : Interactor
         
     }
 
+    
     void Update()
     {
         if (hovered)
@@ -43,12 +46,4 @@ public class BenchSlot : Interactor
     {
         hovered = true;
     }
-
-    public void AddUnit(GameObject new_unit)
-    {
-        unit = new_unit;
-        new_unit.transform.parent = transform;
-        new_unit.transform.localPosition = new Vector3(0, 2, 0);
-    }
-
 }
