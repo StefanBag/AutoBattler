@@ -8,6 +8,7 @@ public class FieldSlot : Interactor
     Color newColor;
     new Renderer renderer;
     bool hovered = false;
+    GameObject unit = null;
 
     void Start()
     {
@@ -39,11 +40,21 @@ public class FieldSlot : Interactor
 
     public override void Interact(Character character)
     {
-        throw new System.NotImplementedException();
+        if(character.holding != null)
+        {
+            AddUnit(character.holding);
+        }
     }
 
     public override void Hover(Character character)
     {
         hovered = true;
+    }
+
+    public void AddUnit(GameObject new_unit)
+    {
+        unit = new_unit;
+        new_unit.transform.parent = transform;
+        new_unit.transform.localPosition = new Vector3(0, 2, 0);
     }
 }

@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class BenchSlot : Interactor
 {
-    public GameObject unit;    Color ogColor;
+    public GameObject unit;    
+    Color ogColor;
     Color newColor;
     new Renderer renderer;
     bool hovered = false;
@@ -36,7 +37,10 @@ public class BenchSlot : Interactor
 
     public override void Interact(Character character)
     {
-        throw new System.NotImplementedException();
+        if(unit != null)
+        {
+            character.holding = unit;
+        }
     }
 
     public override void Hover(Character character)

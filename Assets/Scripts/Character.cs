@@ -4,7 +4,7 @@ using UnityEngine;
 public class Character : MonoBehaviour
 {
     public int level = 0;
-    
+    public GameObject holding = null;
 
     void Start()
     {
@@ -27,11 +27,17 @@ public class Character : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
         {
+            
             Interactor item = hit.collider.GetComponentInParent<Interactor>();
             Debug.Log("Hit object: " + hit.collider.name); 
 
-            
-            item.Hover(this);
+            if (Input.GetMouseButtonDown(0))
+            {
+                item.Interact(this);
+            }
+            else{
+                item.Hover(this);
+            }
         }
     }
 
