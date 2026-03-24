@@ -1,23 +1,28 @@
 using UnityEngine;
 
-
 public class Character : MonoBehaviour
 {
     public int level = 0;
     public GameObject holding = null;
 
+    [SerializeField] private AudioClip selectClip;
+
+    private AudioSource audioSource;
+
     void Start()
     {
-        
+        audioSource = GetComponent<AudioSource>();
+
+        if (audioSource == null && Camera.main != null)
+        {
+            audioSource = Camera.main.GetComponent<AudioSource>();
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
         Interact();
     }
-
-    
 
     public void Interact()
     {
@@ -27,19 +32,31 @@ public class Character : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
         {
-            
             Interactor item = hit.collider.GetComponentInParent<Interactor>();
-            Debug.Log("Hit object: " + hit.collider.name); 
 
-            if (Input.GetMouseButtonDown(0))
+            if (item != null)
             {
-                item.Interact(this);
-            }
-            else{
                 item.Hover(this);
+
+                if (Input.GetMouseButtonDown(0))
+                {
+                    item.Interact(this);
+
+                    Transform hitRoot = hit.collider.transform.root;
+                    Transform hitParent = hit.collider.GetComponentInParent<Transform>();
+
+                    bool clickedFieldSlot = item is FieldSlot;
+                    bool clickedAllyUnit =
+                        hit.collider.CompareTag("AllyUnit") ||
+                        (hitParent != null && hitParent.CompareTag("AllyUnit")) ||
+                        (hitRoot != null && hitRoot.CompareTag("AllyUnit"));
+
+                    if ((clickedFieldSlot || clickedAllyUnit) && audioSource != null && selectClip != null)
+                    {
+                        audioSource.PlayOneShot(selectClip);
+                    }
+                }
             }
         }
     }
-
-
 }
