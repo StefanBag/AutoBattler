@@ -9,10 +9,17 @@ public class FieldSlot : Interactor
     new Renderer renderer;
     bool hovered = false;
     GameObject unit = null;
+    private AudioSource audioSource;
+    [SerializeField] private AudioClip selectClip;
 
     void Start()
     {
-        
+        audioSource = GetComponent<AudioSource>();
+
+        if (audioSource == null && Camera.main != null)
+        {
+            audioSource = Camera.main.GetComponent<AudioSource>();
+        }
         renderer = GetComponent<Renderer>();
 
         
@@ -43,6 +50,7 @@ public class FieldSlot : Interactor
         if(character.holding != null)
         {
             AddUnit(character.holding);
+            audioSource.PlayOneShot(selectClip);
         }
     }
 

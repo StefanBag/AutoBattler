@@ -32,7 +32,6 @@ public class BuyUnits : MonoBehaviour
 
             if (available_slot != null)
             {
-                unit.tag = "AllyUnit";
                 available_slot.AddUnit(unit);
 
                 if (audioSource != null)
