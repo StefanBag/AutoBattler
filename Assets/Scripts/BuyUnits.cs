@@ -10,7 +10,7 @@ public class BuyUnits : MonoBehaviour
     void Start()
     {
         GameObject Bench = transform.parent.parent.Find("FriendlyBench").gameObject;
-        Debug.Log(Bench);
+        
 
         foreach (Transform slot in Bench.transform)
         {
@@ -32,7 +32,7 @@ public class BuyUnits : MonoBehaviour
 
             if (available_slot != null)
             {
-                available_slot.AddUnit(unit);
+                available_slot.AddUnit(Instantiate(unit));
 
                 if (audioSource != null)
                 {
