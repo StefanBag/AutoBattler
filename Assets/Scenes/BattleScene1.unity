@@ -10543,49 +10543,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!1 &379765025 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3506033988928252826, guid: 6a82e89f1e2344143bcb1c6c55a21721, type: 3}
-  m_PrefabInstance: {fileID: 412313915}
-  m_PrefabAsset: {fileID: 0}
---- !u!195 &379765028
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 379765025}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.9195972
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2.8352835
-  m_BaseOffset: 1.4176418
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
---- !u!114 &379765029
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 379765025}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9a7457e5494f442d9ef23b5f715d1b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  team: 1
-  trait1: 0
-  trait2: 2
-  unit_data: {fileID: 11400000, guid: 2cfb7cc6227de490f8335f8ca02e5a38, type: 2}
 --- !u!1 &389874785
 GameObject:
   m_ObjectHideFlags: 0
@@ -11366,12 +11323,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1254219776345852410, guid: 6a82e89f1e2344143bcb1c6c55a21721, type: 3}
       insertIndex: -1
       addedObject: {fileID: 412313918}
-    - targetCorrespondingSourceObject: {fileID: 3506033988928252826, guid: 6a82e89f1e2344143bcb1c6c55a21721, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 379765029}
-    - targetCorrespondingSourceObject: {fileID: 3506033988928252826, guid: 6a82e89f1e2344143bcb1c6c55a21721, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 379765028}
   m_SourcePrefab: {fileID: 100100000, guid: 6a82e89f1e2344143bcb1c6c55a21721, type: 3}
 --- !u!4 &412313916 stripped
 Transform:
@@ -18467,7 +18418,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buyTimer: {fileID: 614821122}
+  resultText: {fileID: 0}
   checkInterval: 1
+  resultDisplayTime: 3
 --- !u!1 &620190368
 GameObject:
   m_ObjectHideFlags: 0

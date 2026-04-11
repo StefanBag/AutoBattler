@@ -1,14 +1,17 @@
 using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;
+using UnityEngine.SceneManagement;
+using TMPro;
 
 public class FightPhase : MonoBehaviour
 {
     [Header("References")]
     public BuyTimer buyTimer;
+    public TextMeshProUGUI resultText;
 
     [Header("Settings")]
     public float checkInterval = 1f;
+    public float resultDisplayTime = 3f;
 
     private bool fightActive = false;
 
@@ -41,11 +44,11 @@ public class FightPhase : MonoBehaviour
             }
 
             if (!anyPlayerAlive || !anyEnemyAlive)
-                EndFight();
+                EndFight(anyPlayerAlive);
         }
     }
 
-    void EndFight()
+    void EndFight(bool playerWon)
     {
         fightActive = false;
 
@@ -53,6 +56,19 @@ public class FightPhase : MonoBehaviour
         foreach (UnitAI unit in allUnits)
             unit.StopCombat();
 
-        buyTimer.StartBuyPhase();
+        if (resultText != null)
+        {
+            resultText.gameObject.SetActive(true);
+            resultText.text = playerWon ? "You Win!" : "You Lose!";
+        }
+
+        StartCoroutine(ReloadScene());
+    }
+
+    IEnumerator ReloadScene()
+    {
+        yield return new WaitForSecondsRealtime(resultDisplayTime);
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
