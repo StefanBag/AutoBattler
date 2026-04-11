@@ -30135,6 +30135,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3724120671239420815}
   - component: {fileID: 5866666021909216657}
+  - component: {fileID: 2078673728799007446}
+  - component: {fileID: -6904819433033027282}
   m_Layer: 0
   m_Name: orc
   m_TagString: Untagged
@@ -30183,6 +30185,44 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2078673728799007446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9204128808516900346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9a7457e5494f442d9ef23b5f715d1b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  team: 0
+  trait1: 1
+  trait2: 3
+  unit_data: {fileID: 11400000, guid: 79dab78ccb0bc3b4ca4acd90f6870759, type: 2}
+--- !u!195 &-6904819433033027282
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9204128808516900346}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &9220503636726764930
 GameObject:
   m_ObjectHideFlags: 0

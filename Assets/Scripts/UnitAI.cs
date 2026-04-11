@@ -50,7 +50,8 @@ public class UnitAI : MonoBehaviour
         }
         else
         {
-            agent.SetDestination(currentTarget.position);
+            if (agent.isActiveAndEnabled && agent.isOnNavMesh)
+                agent.SetDestination(currentTarget.position);
         }
     }
 

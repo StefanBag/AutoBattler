@@ -6,47 +6,21 @@ public class FightPhase : MonoBehaviour
 {
     [Header("References")]
     public BuyTimer buyTimer;
-    public Transform enemySpawnParent;
-    public GameObject enemyPrefab;
 
     [Header("Settings")]
     public float checkInterval = 1f;
 
-    private List<GameObject> activeEnemies = new List<GameObject>();
     private bool fightActive = false;
 
     public void StartFight()
     {
         fightActive = true;
-        activeEnemies.Clear();
 
-        SpawnEnemies();
-        ActivatePlayerUnits();
-
-        StartCoroutine(CheckFightOver());
-    }
-
-    void SpawnEnemies()
-    {
-        if (enemySpawnParent == null || enemyPrefab == null) return;
-
-        foreach (Transform spawnPoint in enemySpawnParent)
-        {
-            GameObject enemy = Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
-            UnitAI ai = enemy.GetComponent<UnitAI>();
-            if (ai != null) ai.StartCombat();
-            activeEnemies.Add(enemy);
-        }
-    }
-
-    void ActivatePlayerUnits()
-    {
         UnitAI[] allUnits = FindObjectsByType<UnitAI>(FindObjectsSortMode.None);
         foreach (UnitAI unit in allUnits)
-        {
-            if (unit.team == UnitTeam.Player)
-                unit.StartCombat();
-        }
+            unit.StartCombat();
+
+        StartCoroutine(CheckFightOver());
     }
 
     IEnumerator CheckFightOver()
@@ -54,9 +28,19 @@ public class FightPhase : MonoBehaviour
         while (fightActive)
         {
             yield return new WaitForSeconds(checkInterval);
-            activeEnemies.RemoveAll(e => e == null || !e.activeInHierarchy);
 
-            if (activeEnemies.Count == 0)
+            bool anyPlayerAlive = false;
+            bool anyEnemyAlive = false;
+
+            UnitAI[] allUnits = FindObjectsByType<UnitAI>(FindObjectsSortMode.None);
+            foreach (UnitAI unit in allUnits)
+            {
+                if (!unit.gameObject.activeInHierarchy) continue;
+                if (unit.team == UnitTeam.Player) anyPlayerAlive = true;
+                if (unit.team == UnitTeam.Enemy) anyEnemyAlive = true;
+            }
+
+            if (!anyPlayerAlive || !anyEnemyAlive)
                 EndFight();
         }
     }
