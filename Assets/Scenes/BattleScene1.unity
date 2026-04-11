@@ -9528,11 +9528,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   team: 0
   trait1: 0
-  trait2: 1
-  maxHealth: 100
-  attackDamage: 10
-  attackCooldown: 1
-  attackRange: 2
+  trait2: 2
+  unit_data: {fileID: 0}
 --- !u!195 &341829645
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -13783,13 +13780,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9a7457e5494f442d9ef23b5f715d1b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  team: 1
+  team: 0
   trait1: 0
   trait2: 2
-  maxHealth: 100
-  attackDamage: 10
-  attackCooldown: 1
-  attackRange: 2
+  unit_data: {fileID: 0}
 --- !u!195 &509771972
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -28403,10 +28397,7 @@ MonoBehaviour:
   team: 0
   trait1: 0
   trait2: 2
-  maxHealth: 100
-  attackDamage: 10
-  attackCooldown: 1
-  attackRange: 2
+  unit_data: {fileID: 0}
 --- !u!43 &937912801
 Mesh:
   m_ObjectHideFlags: 0
@@ -28784,10 +28775,7 @@ MonoBehaviour:
   team: 0
   trait1: 0
   trait2: 2
-  maxHealth: 100
-  attackDamage: 10
-  attackCooldown: 1
-  attackRange: 2
+  unit_data: {fileID: 0}
 --- !u!43 &956857958
 Mesh:
   m_ObjectHideFlags: 0
@@ -38175,6 +38163,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1350411220}
+  - component: {fileID: 1350411221}
   m_Layer: 0
   m_Name: Units
   m_TagString: Untagged
@@ -38200,6 +38189,22 @@ Transform:
   - {fileID: 936168108}
   m_Father: {fileID: 1010273108}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1350411221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1350411219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2c0282ac8a240b4ba4c36ba75546fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitPool:
+  - {fileID: 11400000, guid: 79dab78ccb0bc3b4ca4acd90f6870759, type: 2}
+  - {fileID: 11400000, guid: f9878154ac7e69b4ea530366e556f113, type: 2}
+  - {fileID: 11400000, guid: 805c07a38e6356d48b74082d7e3bca1e, type: 2}
 --- !u!43 &1360646422
 Mesh:
   m_ObjectHideFlags: 0

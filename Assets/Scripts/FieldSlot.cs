@@ -50,7 +50,13 @@ public class FieldSlot : Interactor
         if(character.holding != null && unit == null)
         {
             AddUnit(character.holding);
+            character.holding = null;
             audioSource.PlayOneShot(selectClip);
+        }
+        else if(character.holding == null && unit != null)
+        {
+            character.holding = unit;
+            unit = null;
         }
     }
 

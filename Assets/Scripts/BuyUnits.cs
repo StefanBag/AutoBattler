@@ -1,14 +1,20 @@
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class BuyUnits : MonoBehaviour
 {
     List<BenchSlot> bench_slots = new List<BenchSlot>();
-    public GameObject unit;
+    public UnitData unit;
     public AudioSource audioSource;
+    private TextMeshProUGUI unitNameText;
+    private UnitShopManager unitShopManager;
 
     void Start()
     {
+        unitNameText = transform.Find("UnitName").GetComponent<TextMeshProUGUI>();
+        unitShopManager = FindFirstObjectByType<UnitShopManager>();
+        AssignRandomUnit();
         GameObject Bench = transform.parent.parent.Find("FriendlyBench").gameObject;
         
 
@@ -16,6 +22,7 @@ public class BuyUnits : MonoBehaviour
         {
             bench_slots.Add(slot.gameObject.GetComponent<BenchSlot>());
         }
+        unitNameText.text = unit.unit_name;
     }
 
     void Update()
@@ -32,7 +39,7 @@ public class BuyUnits : MonoBehaviour
 
             if (available_slot != null)
             {
-                available_slot.AddUnit(Instantiate(unit));
+                available_slot.AddUnit(Instantiate(unit.model));
 
                 if (audioSource != null)
                 {
@@ -41,6 +48,15 @@ public class BuyUnits : MonoBehaviour
 
                 unit = null;
             }
+        }
+    }
+
+    void AssignRandomUnit()
+    {
+        if (unitShopManager != null && unitShopManager.unitPool.Count > 0)
+        {
+            int index = Random.Range(0, unitShopManager.unitPool.Count);
+            unit = unitShopManager.unitPool[index];
         }
     }
 

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33606eb5a43d18f4e8db473a8a9e098f, type: 3}
+  m_Name: Black Widow
+  m_EditorClassIdentifier: 
+  unit_name: Black Widow
+  damage: 0
+  range: 0
+  cost: 0
+  cooldown: 0
+  health: 0
+  model: {fileID: 8688803186435683820, guid: fd02805ee801de64a828e8190cac7784, type: 3}
+  trait1: 0
+  trait2: 0

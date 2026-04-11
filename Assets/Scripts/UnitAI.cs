@@ -2,7 +2,6 @@ using UnityEngine;
 using UnityEngine.AI;
 
 public enum UnitTeam { Player, Enemy }
-public enum UnitTrait { Sun, Demon, Ocean, Nature, Fairy }
 
 public class UnitAI : MonoBehaviour
 {
@@ -11,15 +10,11 @@ public class UnitAI : MonoBehaviour
     public UnitTrait trait1 = UnitTrait.Sun;
     public UnitTrait trait2 = UnitTrait.Ocean;
 
-    [Header("Stats")]
-    public float maxHealth = 100f;
-    public float attackDamage = 10f;
-    public float attackCooldown = 1f;
-    public float attackRange = 2f;
+
 
     [Header("NavMesh")]
     protected NavMeshAgent agent;
-
+    public UnitData unit_data;
     protected Transform currentTarget;
     protected float attackTimer = 0f;
     protected float currentHealth;
@@ -28,7 +23,7 @@ public class UnitAI : MonoBehaviour
     protected virtual void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
-        currentHealth = maxHealth;
+        currentHealth = unit_data.health;
         gameObject.tag = team == UnitTeam.Player ? "Player" : "Enemy";
         StartCombat(); // ← add this if you want units to fight immediately
     }
@@ -48,7 +43,7 @@ public class UnitAI : MonoBehaviour
 
         float distanceToTarget = Vector3.Distance(transform.position, currentTarget.position);
 
-        if (distanceToTarget <= attackRange)
+        if (distanceToTarget <= unit_data.range)
         {
             agent.ResetPath();
             FaceTarget(currentTarget);
@@ -56,7 +51,7 @@ public class UnitAI : MonoBehaviour
             if (attackTimer <= 0f)
             {
                 Attack(currentTarget);
-                attackTimer = attackCooldown;
+                attackTimer = unit_data.cooldown;
             }
         }
         else
@@ -70,7 +65,7 @@ public class UnitAI : MonoBehaviour
         UnitAI targetUnit = target.GetComponent<UnitAI>();
         if (targetUnit != null)
         {
-            targetUnit.TakeDamage(attackDamage);
+            targetUnit.TakeDamage(unit_data.damage);
         }
     }
 
