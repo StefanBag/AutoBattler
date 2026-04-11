@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit_name: Orc
   damage: 20
-  range: 2
+  range: 10
   cost: 100
-  cooldown: 2
+  cooldown: 5
   health: 400
   model: {fileID: 9204128808516900346, guid: d13b16839fc97a742ac5c5a8f5628542, type: 3}
   trait1: 1

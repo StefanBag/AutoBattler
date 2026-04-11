@@ -18,10 +18,15 @@ public class UnitAI : MonoBehaviour
     protected float currentHealth;
     protected bool inCombat = false;
 
+    // ADDED
+    protected UnitAnimator unitAnimator;
+
     protected virtual void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
         currentHealth = unit_data.health;
+        // ADDED
+        unitAnimator = GetComponent<UnitAnimator>();
     }
 
     protected virtual void Update()
@@ -57,6 +62,9 @@ public class UnitAI : MonoBehaviour
 
     protected virtual void Attack(Transform target)
     {
+        // ADDED
+        unitAnimator?.TriggerAttack();
+
         UnitAI targetUnit = target.GetComponent<UnitAI>();
         if (targetUnit != null)
             targetUnit.TakeDamage(unit_data.damage);

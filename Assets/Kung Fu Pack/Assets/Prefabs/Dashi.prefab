@@ -819,6 +819,9 @@ GameObject:
   m_Component:
   - component: {fileID: 406034}
   - component: {fileID: 9531590}
+  - component: {fileID: -1565454031773978412}
+  - component: {fileID: -3550072820536550190}
+  - component: {fileID: 8295923366783225968}
   m_Layer: 0
   m_Name: Dashi
   m_TagString: Untagged
@@ -865,6 +868,56 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-1565454031773978412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 140874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9a7457e5494f442d9ef23b5f715d1b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  team: 0
+  trait1: 0
+  trait2: 2
+  unit_data: {fileID: 0}
+--- !u!195 &-3550072820536550190
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 140874}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &8295923366783225968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 140874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 989118d33a3fa423fa5f756e0891d185, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &141092
 GameObject:
   m_ObjectHideFlags: 0

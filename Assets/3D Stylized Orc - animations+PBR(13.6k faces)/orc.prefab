@@ -30136,7 +30136,8 @@ GameObject:
   - component: {fileID: 3724120671239420815}
   - component: {fileID: 5866666021909216657}
   - component: {fileID: 2078673728799007446}
-  - component: {fileID: -6904819433033027282}
+  - component: {fileID: 3688867557342212362}
+  - component: {fileID: 8246144284449994305}
   m_Layer: 0
   m_Name: orc
   m_TagString: Untagged
@@ -30154,8 +30155,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: -0, w: -0.7071068}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: -8549690836703394644}
   - {fileID: 1812821243139812266}
@@ -30173,7 +30174,7 @@ Animator:
   m_GameObject: {fileID: 9204128808516900346}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 35f056ec05646464c9d90c96569ed40f, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 22100000, guid: 23326fbbf94b840e6a4721aeaef3feab, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -30201,7 +30202,7 @@ MonoBehaviour:
   trait1: 1
   trait2: 3
   unit_data: {fileID: 11400000, guid: 79dab78ccb0bc3b4ca4acd90f6870759, type: 2}
---- !u!195 &-6904819433033027282
+--- !u!195 &3688867557342212362
 NavMeshAgent:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -30223,6 +30224,18 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &8246144284449994305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9204128808516900346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 989118d33a3fa423fa5f756e0891d185, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9220503636726764930
 GameObject:
   m_ObjectHideFlags: 0
