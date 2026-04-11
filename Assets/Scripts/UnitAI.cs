@@ -93,7 +93,8 @@ public class UnitAI : MonoBehaviour
     public void StopCombat()
     {
         inCombat = false;
-        agent.ResetPath();
+        if (agent != null && agent.isActiveAndEnabled && agent.isOnNavMesh)
+            agent.ResetPath();
         currentTarget = null;
     }
 }

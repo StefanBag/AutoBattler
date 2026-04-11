@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 17342853}
   - component: {fileID: 17342852}
   - component: {fileID: 17342851}
+  - component: {fileID: 17342854}
   m_Layer: 5
   m_Name: Refresh
   m_TagString: Untagged
@@ -201,7 +202,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 17342852}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 17342854}
+        m_TargetAssemblyTypeName: RefreshButton, Assembly-CSharp
+        m_MethodName: Refresh
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &17342852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -240,6 +253,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 17342849}
   m_CullTransparentMesh: 1
+--- !u!114 &17342854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 17342849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db4187e1dfd55c24887271e73478ddc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &20452594
 GameObject:
   m_ObjectHideFlags: 0
@@ -605,6 +630,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 0
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!1 &23266959
 GameObject:
@@ -1167,6 +1193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 1
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!1 &72525027
 GameObject:
@@ -1533,6 +1560,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 0
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!1 &72993558
 GameObject:
@@ -1899,6 +1927,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 1
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!43 &83625914
 Mesh:
@@ -2430,6 +2459,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 1
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!1 &87880548
 GameObject:
@@ -2796,6 +2826,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 0
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!1 &96692116
 GameObject:
@@ -3761,6 +3792,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 1
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!1 &126197272
 GameObject:
@@ -4127,6 +4159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 1
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!1 &129604898
 GameObject:
@@ -4493,6 +4526,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 0
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!43 &130095422
 Mesh:
@@ -5024,6 +5058,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 0
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!43 &144891954
 Mesh:
@@ -5720,6 +5755,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 1
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!43 &194774161
 Mesh:
@@ -6595,6 +6631,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 0
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!1001 &226356921
 PrefabInstance:
@@ -7039,6 +7076,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 1
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!1 &245857350
 GameObject:
@@ -7450,6 +7488,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 1
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!1 &276776637
 GameObject:
@@ -7816,6 +7855,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 1
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!43 &283812953
 Mesh:
@@ -8347,6 +8387,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 0
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!43 &288392561
 Mesh:
@@ -9077,6 +9118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 0
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!1 &332125522
 GameObject:
@@ -9443,6 +9485,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 0
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!1 &341829642 stripped
 GameObject:
@@ -9543,6 +9586,7 @@ MonoBehaviour:
   level: 2
   money: 90
   holding: {fileID: 0}
+  active: 1
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!114 &342935262
 MonoBehaviour:
@@ -10109,6 +10153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 1
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!1 &379571225
 GameObject:
@@ -11728,6 +11773,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 0
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!1 &425792452
 GameObject:
@@ -12094,6 +12140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 0
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!1 &430668146
 GameObject:
@@ -12828,6 +12875,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 1
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!1001 &468439670
 PrefabInstance:
@@ -13414,6 +13462,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 1
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!1 &487425467
 GameObject:
@@ -14489,6 +14538,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 1
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!1 &519654221
 GameObject:
@@ -14855,6 +14905,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 1
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!1 &524332481
 GameObject:
@@ -15221,6 +15272,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 0
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!1 &525179657
 GameObject:
@@ -15587,6 +15639,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 1
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!1 &536969265
 GameObject:
@@ -15953,6 +16006,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 0
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!1 &537186860
 GameObject:
@@ -18096,6 +18150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 1
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!43 &595738351
 Mesh:
@@ -18386,10 +18441,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2e353d9c741d4e8eb7d43a434f4b14e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buyPhaseDuration: 10
+  buyPhaseDuration: 30
   playerHudCanvas: {fileID: 1559202629}
   countdownText: {fileID: 487425468}
   fightPhase: {fileID: 614821123}
+  character: {fileID: 342935261}
 --- !u!114 &614821123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18807,6 +18863,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 0
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!1001 &634672007
 PrefabInstance:
@@ -20187,6 +20244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 0
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!43 &675783554
 Mesh:
@@ -20961,6 +21019,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 1
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!1 &700344182
 GameObject:
@@ -21501,6 +21560,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 0
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!43 &735230505
 Mesh:
@@ -23822,6 +23882,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 0
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!1 &813902126
 GameObject:
@@ -24188,6 +24249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 1
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!1 &817696221
 GameObject:
@@ -24901,6 +24963,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 1
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!43 &836892501
 Mesh:
@@ -25432,6 +25495,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 0
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!1 &848789388
 GameObject:
@@ -25798,6 +25862,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 1
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!43 &848870403
 Mesh:
@@ -26329,6 +26394,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 0
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!1 &890086126
 GameObject:
@@ -26695,6 +26761,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 1
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!43 &891181835
 Mesh:
@@ -27931,6 +27998,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 1
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!43 &922057918
 Mesh:
@@ -29446,6 +29514,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 0
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!1001 &971750078
 PrefabInstance:
@@ -29890,6 +29959,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 1
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!43 &989212440
 Mesh:
@@ -30667,6 +30737,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 0
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!1001 &1029263046
 PrefabInstance:
@@ -31285,6 +31356,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 0
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!43 &1063869324
 Mesh:
@@ -32117,6 +32189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 0
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!1 &1088847273
 GameObject:
@@ -33330,6 +33403,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 1
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!1 &1186015510
 GameObject:
@@ -33696,6 +33770,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 0
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!1 &1189604330
 GameObject:
@@ -34062,6 +34137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 1
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!1001 &1200031307
 PrefabInstance:
@@ -34506,6 +34582,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 0
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!43 &1218403216
 Mesh:
@@ -35037,6 +35114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 0
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!43 &1237844404
 Mesh:
@@ -35568,6 +35646,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 1
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!43 &1255037835
 Mesh:
@@ -36099,6 +36178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 0
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!1 &1260318330
 GameObject:
@@ -36684,6 +36764,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 0
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!1001 &1271094434
 PrefabInstance:
@@ -37767,6 +37848,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 1
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!43 &1339594932
 Mesh:
@@ -38900,6 +38982,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 1
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!43 &1370872214
 Mesh:
@@ -39938,6 +40021,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 1
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!1 &1430266796
 GameObject:
@@ -40440,6 +40524,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 1
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!43 &1442463261
 Mesh:
@@ -41375,6 +41460,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 1
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!1 &1543493905
 GameObject:
@@ -41741,6 +41827,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 1
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!1 &1547800716
 GameObject:
@@ -42107,6 +42194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 0
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!1 &1552141815
 GameObject:
@@ -42473,6 +42561,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 0
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!1 &1559202629
 GameObject:
@@ -42947,6 +43036,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 1
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!1 &1573225705
 GameObject:
@@ -43992,6 +44082,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 0
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!1 &1606922855
 GameObject:
@@ -44889,6 +44980,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 1
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!1 &1673247137
 GameObject:
@@ -45255,6 +45347,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 1
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!43 &1686189803
 Mesh:
@@ -46471,6 +46564,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 0
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!1 &1784836223
 GameObject:
@@ -46837,6 +46931,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 0
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!1 &1786286761
 GameObject:
@@ -47203,6 +47298,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 1
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!1 &1789260416
 GameObject:
@@ -47569,6 +47665,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 0
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!43 &1797425530
 Mesh:
@@ -48100,6 +48197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 0
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!1001 &1806654290
 PrefabInstance:
@@ -48544,6 +48642,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 1
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!43 &1808508750
 Mesh:
@@ -49521,6 +49620,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 1
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!43 &1842049182
 Mesh:
@@ -50052,6 +50152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 1
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!43 &1869391547
 Mesh:
@@ -50886,6 +50987,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 1
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!1001 &1893002029
 PrefabInstance:
@@ -51631,6 +51733,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 1
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!1001 &1931721251
 PrefabInstance:
@@ -52225,6 +52328,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 0
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!1 &1958053599
 GameObject:
@@ -52836,6 +52940,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 1
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!43 &1991516602
 Mesh:
@@ -53746,6 +53851,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 1
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!1 &2020390467
 GameObject:
@@ -54112,6 +54218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 1
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!43 &2021732656
 Mesh:
@@ -55138,6 +55245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb3121dbf40924182a4fd9da30e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot_type: 1
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!43 &2070066369
 Mesh:

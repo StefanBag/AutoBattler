@@ -1,5 +1,11 @@
 using UnityEngine;
 
+public enum slotType
+{
+    Ally,
+    Enemy
+}
+
 public class FieldSlot : Interactor
 {
     
@@ -9,6 +15,7 @@ public class FieldSlot : Interactor
     new Renderer renderer;
     bool hovered = false;
     GameObject unit = null;
+    public slotType slot_type;
     private AudioSource audioSource;
     [SerializeField] private AudioClip selectClip;
 
@@ -25,6 +32,10 @@ public class FieldSlot : Interactor
         
         ogColor = renderer.material.color;
         newColor = new Color(0.0f, 1.0f, 0.0f, 1.0f);
+        if(slot_type == slotType.Enemy){
+            newColor = new Color(1.0f, 0.0f, 0.0f, 1.0f);
+        }
+        
 
         
         
@@ -47,16 +58,18 @@ public class FieldSlot : Interactor
 
     public override void Interact(Character character)
     {
-        if(character.holding != null && unit == null)
-        {
-            AddUnit(character.holding);
-            character.holding = null;
-            audioSource.PlayOneShot(selectClip);
-        }
-        else if(character.holding == null && unit != null)
-        {
-            character.holding = unit;
-            unit = null;
+        if(slot_type == slotType.Ally){
+            if(character.holding != null && unit == null)
+            {
+                AddUnit(character.holding);
+                character.holding = null;
+                audioSource.PlayOneShot(selectClip);
+            }
+            else if(character.holding == null && unit != null)
+            {
+                character.holding = unit;
+                unit = null;
+            }
         }
     }
 

@@ -1,11 +1,13 @@
+using System;
 using UnityEngine;
+using UnityEngine.InputSystem.LowLevel;
 
 public class Character : MonoBehaviour
 {
     public int level = 0;
     public int money = 90;
     public GameObject holding = null;
-
+    public Boolean active = true;
     [SerializeField] private AudioClip selectClip;
 
     private AudioSource audioSource;
@@ -22,7 +24,9 @@ public class Character : MonoBehaviour
 
     void Update()
     {
+        
         Interact();
+        
     }
 
     public void Interact()

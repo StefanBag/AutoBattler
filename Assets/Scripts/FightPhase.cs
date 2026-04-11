@@ -17,6 +17,7 @@ public class FightPhase : MonoBehaviour
 
     public void StartFight()
     {
+        
         fightActive = true;
         activeEnemies.Clear();
 

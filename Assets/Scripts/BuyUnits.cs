@@ -9,7 +9,6 @@ public class BuyUnits : MonoBehaviour
     public AudioSource audioSource;
     private TextMeshProUGUI unitNameText;
     private TextMeshProUGUI priceText;
-    private UnitShopManager unitShopManager;
     public Character character;
 
     void Start()
@@ -17,8 +16,6 @@ public class BuyUnits : MonoBehaviour
         character = FindFirstObjectByType<Character>();
         unitNameText = transform.Find("UnitName").GetComponent<TextMeshProUGUI>();
         priceText = transform.Find("Price").GetComponent<TextMeshProUGUI>();
-        unitShopManager = FindFirstObjectByType<UnitShopManager>();
-        
         GameObject Bench = GameObject.Find("FriendlyBench");
         
 
@@ -67,10 +64,17 @@ public class BuyUnits : MonoBehaviour
 
     void AssignRandomUnit()
     {
-        if (unitShopManager != null && unitShopManager.unitPool.Count > 0)
+        GameObject unitsFolder = GameObject.Find("Units");
+        if (unitsFolder == null) return;
+
+        List<GameObject> unitList = new();
+        foreach (Transform child in unitsFolder.transform)
+            unitList.Add(child.gameObject);
+
+        if (unitList.Count > 0)
         {
-            int index = Random.Range(0, unitShopManager.unitPool.Count);
-            unit = unitShopManager.unitPool[index];
+            GameObject picked = unitList[Random.Range(0, unitList.Count)];
+            unit = picked.GetComponent<UnitAI>().unit_data;
         }
     }
 

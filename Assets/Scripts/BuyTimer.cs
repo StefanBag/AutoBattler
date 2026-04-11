@@ -13,6 +13,7 @@ public class BuyTimer : MonoBehaviour
 
     private float timeRemaining;
     private bool isBuyPhase = false;
+    public Character character;
 
     
 
@@ -33,6 +34,7 @@ public class BuyTimer : MonoBehaviour
 
     void StartFightPhase()
     {
+        character.active = false;
         isBuyPhase = false;
         timeRemaining = 0f;
         countdownText.text = "Fight!";
@@ -54,6 +56,7 @@ public class BuyTimer : MonoBehaviour
 
     public void StartBuyPhase()
     {
+        character.active = false;
         isBuyPhase = true;
         timeRemaining = buyPhaseDuration;
         Time.timeScale = 0f;
