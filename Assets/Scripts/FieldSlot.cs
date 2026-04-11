@@ -47,7 +47,7 @@ public class FieldSlot : Interactor
 
     public override void Interact(Character character)
     {
-        if(character.holding != null)
+        if(character.holding != null && unit == null)
         {
             AddUnit(character.holding);
             audioSource.PlayOneShot(selectClip);
