@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 33606eb5a43d18f4e8db473a8a9e098f, type: 3}
-  m_Name: Black Widow
+  m_Name: SeaGull
   m_EditorClassIdentifier: 
-  unit_name: Black Widow
+  unit_name: SeaGull
   damage: 30
   range: 2
-  cost: 50
-  cooldown: 2
-  health: 150
-  model: {fileID: 8688803186435683820, guid: fd02805ee801de64a828e8190cac7784, type: 3}
+  cost: 0
+  cooldown: 5
+  health: 100
+  model: {fileID: 1254219776345852410, guid: 6a82e89f1e2344143bcb1c6c55a21721, type: 3}
   trait1: 0
   trait2: 0

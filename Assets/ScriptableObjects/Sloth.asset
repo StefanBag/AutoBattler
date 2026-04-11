@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 33606eb5a43d18f4e8db473a8a9e098f, type: 3}
-  m_Name: Black Widow
+  m_Name: Sloth
   m_EditorClassIdentifier: 
-  unit_name: Black Widow
-  damage: 30
-  range: 2
-  cost: 50
-  cooldown: 2
-  health: 150
-  model: {fileID: 8688803186435683820, guid: fd02805ee801de64a828e8190cac7784, type: 3}
+  unit_name: Sloth
+  damage: 20
+  range: 8
+  cost: 0
+  cooldown: 3
+  health: 30
+  model: {fileID: 2804109342156569821, guid: cfa570707f90a144e9f2d59aabcaa705, type: 3}
   trait1: 0
   trait2: 0

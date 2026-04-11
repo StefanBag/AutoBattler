@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Soldier
   m_EditorClassIdentifier: 
   unit_name: Soldier
-  damage: 0
-  range: 0
+  damage: 40
+  range: 5
   cost: 20
-  cooldown: 0
-  health: 0
+  cooldown: 2
+  health: 100
   model: {fileID: 1281914457622604, guid: 4bc1a69d8733fc049baca07c8bee0cde, type: 3}
   trait1: 0
   trait2: 0
