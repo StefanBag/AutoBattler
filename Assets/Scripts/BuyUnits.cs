@@ -18,8 +18,8 @@ public class BuyUnits : MonoBehaviour
         unitNameText = transform.Find("UnitName").GetComponent<TextMeshProUGUI>();
         priceText = transform.Find("Price").GetComponent<TextMeshProUGUI>();
         unitShopManager = FindFirstObjectByType<UnitShopManager>();
-        AssignRandomUnit();
-        GameObject Bench = transform.parent.parent.Find("FriendlyBench").gameObject;
+        
+        GameObject Bench = GameObject.Find("FriendlyBench");
         
 
         foreach (Transform slot in Bench.transform)
@@ -27,6 +27,12 @@ public class BuyUnits : MonoBehaviour
             bench_slots.Add(slot.gameObject.GetComponent<BenchSlot>());
         }
         
+        Button_Setup();
+    }
+
+    public void Button_Setup()
+    {
+        AssignRandomUnit();
         unitNameText.text = unit.unit_name;
         priceText.text = $"${unit.cost}";
     }

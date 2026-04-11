@@ -30,34 +30,7 @@ public class UnitAI : MonoBehaviour
 
     protected virtual void Update()
     {
-        if (!inCombat) return;
-
-        attackTimer -= Time.deltaTime;
-
-        if (currentTarget == null || !currentTarget.gameObject.activeInHierarchy)
-        {
-            currentTarget = FindClosestEnemy();
-        }
-
-        if (currentTarget == null) return;
-
-        float distanceToTarget = Vector3.Distance(transform.position, currentTarget.position);
-
-        if (distanceToTarget <= unit_data.range)
-        {
-            agent.ResetPath();
-            FaceTarget(currentTarget);
-
-            if (attackTimer <= 0f)
-            {
-                Attack(currentTarget);
-                attackTimer = unit_data.cooldown;
-            }
-        }
-        else
-        {
-            agent.SetDestination(currentTarget.position);
-        }
+       
     }
 
     protected virtual void Attack(Transform target)
