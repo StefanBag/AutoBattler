@@ -1,15 +1,21 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-// Base class - MeleeUnitAI and RangedUnitAI will extend this
+public enum UnitTeam { Player, Enemy }
+public enum UnitTrait { Sun, Demon, Ocean, Nature, Fairy }
+
 public class UnitAI : MonoBehaviour
 {
+    [Header("Identity")]
+    public UnitTeam team = UnitTeam.Player;
+    public UnitTrait trait1 = UnitTrait.Sun;
+    public UnitTrait trait2 = UnitTrait.Ocean;
+
     [Header("Stats")]
     public float maxHealth = 100f;
     public float attackDamage = 10f;
-    public float attackCooldown = 1f;   // seconds between attacks
-    public float attackRange = 2f;      // distance to start attacking
-    public string enemyTag = "Enemy";   // set to "Player" on enemy units, "Enemy" on player units
+    public float attackCooldown = 1f;
+    public float attackRange = 2f;
 
     [Header("NavMesh")]
     protected NavMeshAgent agent;
@@ -23,6 +29,8 @@ public class UnitAI : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         currentHealth = maxHealth;
+        gameObject.tag = team == UnitTeam.Player ? "Player" : "Enemy";
+        StartCombat(); // ← add this if you want units to fight immediately
     }
 
     protected virtual void Update()
@@ -31,7 +39,6 @@ public class UnitAI : MonoBehaviour
 
         attackTimer -= Time.deltaTime;
 
-        // Find closest enemy if we don't have one
         if (currentTarget == null || !currentTarget.gameObject.activeInHierarchy)
         {
             currentTarget = FindClosestEnemy();
@@ -43,7 +50,6 @@ public class UnitAI : MonoBehaviour
 
         if (distanceToTarget <= attackRange)
         {
-            // In range — stop moving and attack
             agent.ResetPath();
             FaceTarget(currentTarget);
 
@@ -55,14 +61,12 @@ public class UnitAI : MonoBehaviour
         }
         else
         {
-            // Move toward target
             agent.SetDestination(currentTarget.position);
         }
     }
 
     protected virtual void Attack(Transform target)
     {
-        // Deal damage to target
         UnitAI targetUnit = target.GetComponent<UnitAI>();
         if (targetUnit != null)
         {
@@ -73,23 +77,20 @@ public class UnitAI : MonoBehaviour
     public virtual void TakeDamage(float damage)
     {
         currentHealth -= damage;
-
-        if (currentHealth <= 0f)
-        {
-            Die();
-        }
+        if (currentHealth <= 0f) Die();
     }
 
     protected virtual void Die()
     {
         inCombat = false;
         agent.ResetPath();
-        // Override in subclass for death animations etc.
         gameObject.SetActive(false);
     }
 
     protected Transform FindClosestEnemy()
     {
+        // Find opposite team's tag
+        string enemyTag = team == UnitTeam.Player ? "Enemy" : "Player";
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
         Transform closest = null;
         float closestDist = Mathf.Infinity;
