@@ -24,8 +24,7 @@ public class UnitAI : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         currentHealth = unit_data.health;
-        gameObject.tag = team == UnitTeam.Player ? "Player" : "Enemy";
-        StartCombat(); // ← add this if you want units to fight immediately
+        StartCombat();
     }
 
     protected virtual void Update()
@@ -57,19 +56,19 @@ public class UnitAI : MonoBehaviour
 
     protected Transform FindClosestEnemy()
     {
-        // Find opposite team's tag
-        string enemyTag = team == UnitTeam.Player ? "Enemy" : "Player";
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
+        UnitTeam enemyTeam = team == UnitTeam.Player ? UnitTeam.Enemy : UnitTeam.Player;
+        UnitAI[] allUnits = FindObjectsByType<UnitAI>(FindObjectsSortMode.None);
         Transform closest = null;
         float closestDist = Mathf.Infinity;
 
-        foreach (GameObject enemy in enemies)
+        foreach (UnitAI unit in allUnits)
         {
-            float dist = Vector3.Distance(transform.position, enemy.transform.position);
+            if (unit.team != enemyTeam || !unit.gameObject.activeInHierarchy) continue;
+            float dist = Vector3.Distance(transform.position, unit.transform.position);
             if (dist < closestDist)
             {
                 closestDist = dist;
-                closest = enemy.transform;
+                closest = unit.transform;
             }
         }
 
