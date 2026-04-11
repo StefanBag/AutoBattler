@@ -12,14 +12,9 @@ public class BuyTimer : MonoBehaviour
     public FightPhase fightPhase;        // assign in inspector
 
     private float timeRemaining;
-    private bool isBuyPhase = true;
+    private bool isBuyPhase = false;
 
-    void Start()
-    {
-        timeRemaining = buyPhaseDuration;
-        Time.timeScale = 0f;
-        playerHudCanvas.SetActive(true);
-    }
+    
 
     void Update()
     {

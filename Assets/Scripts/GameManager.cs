@@ -4,6 +4,7 @@ public class GameManager : MonoBehaviour
 {
     public GameObject PlayerHUD;
     public GameObject Text;
+    public BuyTimer buy_phase;
     bool active_message;
     void Start()
     {
@@ -19,8 +20,10 @@ public class GameManager : MonoBehaviour
         if (active_message && Input.GetKey(KeyCode.Space) )
         {
             active_message = false;
-            PlayerHUD.SetActive(true);
+
             Text.SetActive(false);
+            buy_phase.StartBuyPhase();
+            
         }
 
     }
