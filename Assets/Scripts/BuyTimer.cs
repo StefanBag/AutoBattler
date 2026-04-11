@@ -9,27 +9,21 @@ public class BuyTimer : MonoBehaviour
     [Header("References")]
     public GameObject playerHudCanvas;
     public TextMeshProUGUI countdownText;
-    public FightPhase fightPhase;        // assign in inspector
+    public FightPhase fightPhase;
+    public Character character;
 
     private float timeRemaining;
     private bool isBuyPhase = false;
-    public Character character;
-
-    
 
     void Update()
     {
         if (!isBuyPhase) return;
 
         timeRemaining -= Time.unscaledDeltaTime;
-
-        int seconds = Mathf.CeilToInt(timeRemaining);
-        countdownText.text = seconds.ToString();
+        countdownText.text = Mathf.CeilToInt(timeRemaining).ToString();
 
         if (timeRemaining <= 0f)
-        {
             StartFightPhase();
-        }
     }
 
     void StartFightPhase()
@@ -43,8 +37,6 @@ public class BuyTimer : MonoBehaviour
         Time.timeScale = 1f;
 
         Invoke(nameof(HideCountdown), 1f);
-
-        // Kick off the fight
         fightPhase.StartFight();
     }
 
@@ -56,7 +48,7 @@ public class BuyTimer : MonoBehaviour
 
     public void StartBuyPhase()
     {
-        character.active = false;
+        character.active = true; // ← re-enable player control
         isBuyPhase = true;
         timeRemaining = buyPhaseDuration;
         Time.timeScale = 0f;

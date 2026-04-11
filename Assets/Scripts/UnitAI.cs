@@ -10,8 +10,6 @@ public class UnitAI : MonoBehaviour
     public UnitTrait trait1 = UnitTrait.Sun;
     public UnitTrait trait2 = UnitTrait.Ocean;
 
-
-
     [Header("NavMesh")]
     protected NavMeshAgent agent;
     public UnitData unit_data;
@@ -24,21 +22,43 @@ public class UnitAI : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         currentHealth = unit_data.health;
-        StartCombat();
     }
 
     protected virtual void Update()
     {
-       
+        if (!inCombat) return;
+
+        attackTimer -= Time.deltaTime;
+
+        if (currentTarget == null || !currentTarget.gameObject.activeInHierarchy)
+            currentTarget = FindClosestEnemy();
+
+        if (currentTarget == null) return;
+
+        float dist = Vector3.Distance(transform.position, currentTarget.position);
+
+        if (dist <= unit_data.range)
+        {
+            agent.ResetPath();
+            FaceTarget(currentTarget);
+
+            if (attackTimer <= 0f)
+            {
+                Attack(currentTarget);
+                attackTimer = unit_data.cooldown;
+            }
+        }
+        else
+        {
+            agent.SetDestination(currentTarget.position);
+        }
     }
 
     protected virtual void Attack(Transform target)
     {
         UnitAI targetUnit = target.GetComponent<UnitAI>();
         if (targetUnit != null)
-        {
             targetUnit.TakeDamage(unit_data.damage);
-        }
     }
 
     public virtual void TakeDamage(float damage)
@@ -88,6 +108,11 @@ public class UnitAI : MonoBehaviour
         inCombat = true;
         currentTarget = null;
         attackTimer = 0f;
+
+        transform.SetParent(null);
+
+        if (NavMesh.SamplePosition(transform.position, out NavMeshHit hit, 5f, NavMesh.AllAreas))
+            agent.Warp(hit.position);
     }
 
     public void StopCombat()
