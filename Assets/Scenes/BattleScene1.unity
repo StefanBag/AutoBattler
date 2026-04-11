@@ -9421,7 +9421,7 @@ MonoBehaviour:
   team: 0
   trait1: 0
   trait2: 2
-  unit_data: {fileID: 0}
+  unit_data: {fileID: 11400000, guid: 805c07a38e6356d48b74082d7e3bca1e, type: 2}
 --- !u!195 &341829645
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -9493,6 +9493,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: 2
+  money: 90
   holding: {fileID: 0}
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
 --- !u!114 &342935262
@@ -9518,7 +9519,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 1
+  m_RenderPostProcessing: 0
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -20883,6 +20884,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 944049461}
   audioSource: {fileID: 0}
+  character: {fileID: 0}
 --- !u!65 &700344189
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22972,6 +22974,7 @@ GameObject:
   - component: {fileID: 785441014}
   - component: {fileID: 785441016}
   - component: {fileID: 785441015}
+  - component: {fileID: 785441017}
   m_Layer: 5
   m_Name: Money
   m_TagString: Untagged
@@ -23037,6 +23040,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 785441013}
   m_CullTransparentMesh: 1
+--- !u!114 &785441017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 785441013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d4d80721aa59ce4fa7d0bae3fe08779, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 342935261}
 --- !u!1 &788478885
 GameObject:
   m_ObjectHideFlags: 0
@@ -23189,6 +23205,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 341829642}
   audioSource: {fileID: 0}
+  character: {fileID: 0}
 --- !u!65 &788478892
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -27960,7 +27977,7 @@ MonoBehaviour:
   team: 0
   trait1: 0
   trait2: 2
-  unit_data: {fileID: 0}
+  unit_data: {fileID: 11400000, guid: 79dab78ccb0bc3b4ca4acd90f6870759, type: 2}
 --- !u!43 &937912801
 Mesh:
   m_ObjectHideFlags: 0
@@ -28338,7 +28355,7 @@ MonoBehaviour:
   team: 0
   trait1: 0
   trait2: 2
-  unit_data: {fileID: 0}
+  unit_data: {fileID: 11400000, guid: f9878154ac7e69b4ea530366e556f113, type: 2}
 --- !u!43 &956857958
 Mesh:
   m_ObjectHideFlags: 0
@@ -42713,6 +42730,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 936168109}
   audioSource: {fileID: 0}
+  character: {fileID: 0}
 --- !u!65 &1573225713
 BoxCollider:
   m_ObjectHideFlags: 0

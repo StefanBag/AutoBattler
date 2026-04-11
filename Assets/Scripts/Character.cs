@@ -3,6 +3,7 @@ using UnityEngine;
 public class Character : MonoBehaviour
 {
     public int level = 0;
+    public int money = 90;
     public GameObject holding = null;
 
     [SerializeField] private AudioClip selectClip;

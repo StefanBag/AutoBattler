@@ -15,7 +15,7 @@ MonoBehaviour:
   unit_name: Black Widow
   damage: 0
   range: 0
-  cost: 0
+  cost: 50
   cooldown: 0
   health: 0
   model: {fileID: 8688803186435683820, guid: fd02805ee801de64a828e8190cac7784, type: 3}
