@@ -10,6 +10,9 @@ public class UnitAI : MonoBehaviour
     public UnitTrait trait1 = UnitTrait.Sun;
     public UnitTrait trait2 = UnitTrait.Ocean;
 
+    [Header("State")]
+    public bool isOnBench = false;
+
     [Header("NavMesh")]
     protected NavMeshAgent agent;
     public UnitData unit_data;
@@ -18,15 +21,18 @@ public class UnitAI : MonoBehaviour
     protected float currentHealth;
     protected bool inCombat = false;
 
-    // ADDED
     protected UnitAnimator unitAnimator;
+    private Transform unitsFolder;
 
     protected virtual void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
         currentHealth = unit_data.health;
-        // ADDED
         unitAnimator = GetComponent<UnitAnimator>();
+
+        GameObject unitsObj = GameObject.Find("Units");
+        if (unitsObj != null)
+            unitsFolder = unitsObj.transform;
     }
 
     protected virtual void Update()
@@ -44,7 +50,9 @@ public class UnitAI : MonoBehaviour
 
         if (dist <= unit_data.range)
         {
-            agent.ResetPath();
+            if (agent != null && agent.isActiveAndEnabled && agent.isOnNavMesh)
+                agent.ResetPath();
+
             FaceTarget(currentTarget);
 
             if (attackTimer <= 0f)
@@ -55,14 +63,13 @@ public class UnitAI : MonoBehaviour
         }
         else
         {
-            if (agent.isActiveAndEnabled && agent.isOnNavMesh)
+            if (agent != null && agent.isActiveAndEnabled && agent.isOnNavMesh)
                 agent.SetDestination(currentTarget.position);
         }
     }
 
     protected virtual void Attack(Transform target)
     {
-        // ADDED
         unitAnimator?.TriggerAttack();
 
         UnitAI targetUnit = target.GetComponent<UnitAI>();
@@ -73,13 +80,18 @@ public class UnitAI : MonoBehaviour
     public virtual void TakeDamage(float damage)
     {
         currentHealth -= damage;
-        if (currentHealth <= 0f) Die();
+
+        if (currentHealth <= 0f)
+            Die();
     }
 
     protected virtual void Die()
     {
         inCombat = false;
-        agent.ResetPath();
+
+        if (agent != null && agent.isActiveAndEnabled && agent.isOnNavMesh)
+            agent.ResetPath();
+
         gameObject.SetActive(false);
     }
 
@@ -87,12 +99,19 @@ public class UnitAI : MonoBehaviour
     {
         UnitTeam enemyTeam = team == UnitTeam.Player ? UnitTeam.Enemy : UnitTeam.Player;
         UnitAI[] allUnits = FindObjectsByType<UnitAI>(FindObjectsSortMode.None);
+
         Transform closest = null;
         float closestDist = Mathf.Infinity;
 
         foreach (UnitAI unit in allUnits)
         {
-            if (unit.team != enemyTeam || !unit.gameObject.activeInHierarchy) continue;
+            if (unit == null) continue;
+            if (unit == this) continue;
+            if (!unit.gameObject.activeInHierarchy) continue;
+            if (!unit.enabled) continue;
+            if (unit.team != enemyTeam) continue;
+            if (IsShopTemplate(unit.gameObject)) continue;
+
             float dist = Vector3.Distance(transform.position, unit.transform.position);
             if (dist < closestDist)
             {
@@ -104,10 +123,17 @@ public class UnitAI : MonoBehaviour
         return closest;
     }
 
+    bool IsShopTemplate(GameObject obj)
+    {
+        if (obj == null || unitsFolder == null) return false;
+        return obj.transform.IsChildOf(unitsFolder);
+    }
+
     void FaceTarget(Transform target)
     {
         Vector3 direction = (target.position - transform.position).normalized;
-        direction.y = 0;
+        direction.y = 0f;
+
         if (direction != Vector3.zero)
             transform.rotation = Quaternion.LookRotation(direction);
     }
@@ -118,17 +144,22 @@ public class UnitAI : MonoBehaviour
         currentTarget = null;
         attackTimer = 0f;
 
+        isOnBench = false;
         transform.SetParent(null);
 
-        if (NavMesh.SamplePosition(transform.position, out NavMeshHit hit, 5f, NavMesh.AllAreas))
-            agent.Warp(hit.position);
+        if (agent != null && agent.enabled)
+        {
+            if (NavMesh.SamplePosition(transform.position, out NavMeshHit hit, 5f, NavMesh.AllAreas))
+                agent.Warp(hit.position);
+        }
     }
 
     public void StopCombat()
     {
         inCombat = false;
+        currentTarget = null;
+
         if (agent != null && agent.isActiveAndEnabled && agent.isOnNavMesh)
             agent.ResetPath();
-        currentTarget = null;
     }
 }

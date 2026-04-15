@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class BenchSlot : Interactor
 {
-    public GameObject unit;    
+    public GameObject unit;
     Color ogColor;
     Color newColor;
     new Renderer renderer;
@@ -10,15 +10,9 @@ public class BenchSlot : Interactor
 
     void Start()
     {
-        
         renderer = GetComponent<Renderer>();
-
-        
         ogColor = renderer.material.color;
         newColor = new Color(0.0f, 1.0f, 0.0f, 1.0f);
-
-        
-        
     }
 
     void Update()
@@ -34,12 +28,17 @@ public class BenchSlot : Interactor
         }
     }
 
-
     public override void Interact(Character character)
     {
-        if(unit != null)
+        if (unit != null && character.holding == null)
         {
             character.holding = unit;
+
+            UnitAI ai = unit.GetComponent<UnitAI>();
+            if (ai != null)
+                ai.isOnBench = false;
+
+            unit = null;
         }
     }
 
@@ -51,8 +50,12 @@ public class BenchSlot : Interactor
     public void AddUnit(GameObject new_unit)
     {
         unit = new_unit;
-        new_unit.transform.parent = transform;
-        new_unit.transform.localPosition = new Vector3(0, 2, 0);
-    }
 
+        new_unit.transform.SetParent(transform);
+        new_unit.transform.localPosition = new Vector3(0, 2, 0);
+
+        UnitAI ai = new_unit.GetComponent<UnitAI>();
+        if (ai != null)
+            ai.isOnBench = true;
+    }
 }

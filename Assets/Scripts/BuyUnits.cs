@@ -16,49 +16,61 @@ public class BuyUnits : MonoBehaviour
         character = FindFirstObjectByType<Character>();
         unitNameText = transform.Find("UnitName").GetComponent<TextMeshProUGUI>();
         priceText = transform.Find("Price").GetComponent<TextMeshProUGUI>();
-        GameObject Bench = GameObject.Find("FriendlyBench");
-        
 
-        foreach (Transform slot in Bench.transform)
+        GameObject bench = GameObject.Find("FriendlyBench");
+        if (bench != null)
         {
-            bench_slots.Add(slot.gameObject.GetComponent<BenchSlot>());
+            foreach (Transform slot in bench.transform)
+            {
+                BenchSlot benchSlot = slot.GetComponent<BenchSlot>();
+                if (benchSlot != null)
+                    bench_slots.Add(benchSlot);
+            }
         }
-        
+
         Button_Setup();
     }
 
     public void Button_Setup()
     {
         AssignRandomUnit();
-        unitNameText.text = unit.unit_name;
-        priceText.text = $"${unit.cost}";
+
+        if (unit != null)
+        {
+            unitNameText.text = unit.unit_name;
+            priceText.text = $"${unit.cost}";
+        }
     }
 
     void Update()
     {
-        Debug.Log(character.money);
+        if (character != null)
+            Debug.Log(character.money);
     }
 
     public void BuyUnit()
     {
-        if (unit != null)
+        if (unit == null || character == null) return;
+
+        BenchSlot available_slot = CheckAvailableSlots();
+        Debug.Log(available_slot);
+
+        if (available_slot != null && character.money >= unit.cost)
         {
-            BenchSlot available_slot = CheckAvailableSlots();
-            Debug.Log(available_slot);
+            GameObject spawnedUnit = Instantiate(unit.model);
 
-            if (available_slot != null && character.money >= unit.cost)
-            {
-                
-                available_slot.AddUnit(Instantiate(unit.model));
+            UnitAI ai = spawnedUnit.GetComponent<UnitAI>();
+            if (ai != null)
+                ai.isOnBench = true;
 
-                if (audioSource != null)
-                {
-                    audioSource.Play();
-                }
-                character.money -= unit.cost;
-                unit = null;
-                this.gameObject.SetActive(false);
-            }
+            available_slot.AddUnit(spawnedUnit);
+
+            if (audioSource != null)
+                audioSource.Play();
+
+            character.money -= unit.cost;
+            unit = null;
+            gameObject.SetActive(false);
         }
     }
 
@@ -67,14 +79,18 @@ public class BuyUnits : MonoBehaviour
         GameObject unitsFolder = GameObject.Find("Units");
         if (unitsFolder == null) return;
 
-        List<GameObject> unitList = new();
+        List<GameObject> unitList = new List<GameObject>();
+
         foreach (Transform child in unitsFolder.transform)
             unitList.Add(child.gameObject);
 
         if (unitList.Count > 0)
         {
             GameObject picked = unitList[Random.Range(0, unitList.Count)];
-            unit = picked.GetComponent<UnitAI>().unit_data;
+            UnitAI ai = picked.GetComponent<UnitAI>();
+
+            if (ai != null)
+                unit = ai.unit_data;
         }
     }
 
@@ -82,11 +98,10 @@ public class BuyUnits : MonoBehaviour
     {
         foreach (BenchSlot slot in bench_slots)
         {
-            if (slot.unit == null)
-            {
+            if (slot != null && slot.unit == null)
                 return slot;
-            }
         }
+
         return null;
     }
 }
