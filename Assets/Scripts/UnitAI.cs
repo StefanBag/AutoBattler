@@ -1,3 +1,4 @@
+// UnitAI.cs
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -70,17 +71,16 @@ public class UnitAI : MonoBehaviour
 
     protected virtual void Attack(Transform target)
     {
-        unitAnimator?.TriggerAttack();
-
         UnitAI targetUnit = target.GetComponent<UnitAI>();
         if (targetUnit != null)
             targetUnit.TakeDamage(unit_data.damage);
+
+        unitAnimator?.StartAttackAnim();
     }
 
     public virtual void TakeDamage(float damage)
     {
         currentHealth -= damage;
-
         if (currentHealth <= 0f)
             Die();
     }
@@ -133,7 +133,6 @@ public class UnitAI : MonoBehaviour
     {
         Vector3 direction = (target.position - transform.position).normalized;
         direction.y = 0f;
-
         if (direction != Vector3.zero)
             transform.rotation = Quaternion.LookRotation(direction);
     }
@@ -143,7 +142,6 @@ public class UnitAI : MonoBehaviour
         inCombat = true;
         currentTarget = null;
         attackTimer = 0f;
-
         isOnBench = false;
         transform.SetParent(null);
 
