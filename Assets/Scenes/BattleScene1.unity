@@ -12912,6 +12912,7 @@ MonoBehaviour:
   team: 1
   trait1: 0
   trait2: 2
+  isOnBench: 0
   unit_data: {fileID: 11400000, guid: 2cfb7cc6227de490f8335f8ca02e5a38, type: 2}
 --- !u!1 &480732423
 GameObject:
@@ -40404,6 +40405,7 @@ MonoBehaviour:
   team: 1
   trait1: 0
   trait2: 2
+  isOnBench: 0
   unit_data: {fileID: 11400000, guid: 7019659ffaac54e9498f9c5782aebbd2, type: 2}
 --- !u!114 &1453389105
 MonoBehaviour:
