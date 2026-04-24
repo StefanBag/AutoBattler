@@ -623,7 +623,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: 1
+  money: 90
   holding: {fileID: 0}
+  active: 1
+  selectClip: {fileID: 0}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1498,7 +1501,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Complete: {r: 0.022427902, g: 0.5283019, b: 0.024451371, a: 1}
-  Incomplete: {r: 0, g: 0, b: 0, a: 1}
+  Incomplete: {r: 0.5660378, g: 0.3764685, b: 0.3764685, a: 1}
   Active: {r: 0.9528302, g: 0.2824099, b: 0.23820755, a: 1}
 --- !u!1 &1263275367
 GameObject:
