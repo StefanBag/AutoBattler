@@ -42,15 +42,10 @@ public class UnitAnimator : MonoBehaviour
     {
         animator.SetBool(IsAttacking, true);
 
-        // Wait one frame for animator to transition into the attack state
-        yield return null;
+        yield return null; // wait one frame for animator to transition
 
-        // Get the length of whichever clip is now playing
         AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
-        float clipLength = stateInfo.length;
-
-        // Clamp to something sane in case of loops or bad data
-        clipLength = Mathf.Clamp(clipLength, 0.1f, 5f);
+        float clipLength = Mathf.Clamp(stateInfo.length, 0.1f, 5f);
 
         yield return new WaitForSeconds(clipLength);
 

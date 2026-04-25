@@ -1,4 +1,4 @@
-using UnityEditor;
+// UnitData.cs
 using UnityEngine;
 
 public enum UnitTrait

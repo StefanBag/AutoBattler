@@ -1,3 +1,4 @@
+// FieldSlot.cs
 using UnityEngine;
 
 public enum slotType
@@ -8,8 +9,6 @@ public enum slotType
 
 public class FieldSlot : Interactor
 {
-    
-
     Color ogColor;
     Color newColor;
     new Renderer renderer;
@@ -24,24 +23,16 @@ public class FieldSlot : Interactor
         audioSource = GetComponent<AudioSource>();
 
         if (audioSource == null && Camera.main != null)
-        {
             audioSource = Camera.main.GetComponent<AudioSource>();
-        }
-        renderer = GetComponent<Renderer>();
 
-        
+        renderer = GetComponent<Renderer>();
         ogColor = renderer.material.color;
         newColor = new Color(0.0f, 1.0f, 0.0f, 1.0f);
-        if(slot_type == slotType.Enemy){
-            newColor = new Color(1.0f, 0.0f, 0.0f, 1.0f);
-        }
-        
 
-        
-        
+        if (slot_type == slotType.Enemy)
+            newColor = new Color(1.0f, 0.0f, 0.0f, 1.0f);
     }
 
-    
     void Update()
     {
         if (hovered)
@@ -55,20 +46,26 @@ public class FieldSlot : Interactor
         }
     }
 
-
     public override void Interact(Character character)
     {
-        if(slot_type == slotType.Ally){
-            if(character.holding != null && unit == null)
+        if (slot_type == slotType.Ally)
+        {
+            if (character.holding != null && unit == null)
             {
                 AddUnit(character.holding);
                 character.holding = null;
                 audioSource.PlayOneShot(selectClip);
+
+                // Unit placed on board — refresh traits
+                TraitSystem.Instance?.RefreshTraits();
             }
-            else if(character.holding == null && unit != null)
+            else if (character.holding == null && unit != null)
             {
                 character.holding = unit;
                 unit = null;
+
+                // Unit picked up from board — refresh traits
+                TraitSystem.Instance?.RefreshTraits();
             }
         }
     }

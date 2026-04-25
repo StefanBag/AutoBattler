@@ -17,7 +17,7 @@ MonoBehaviour:
   range: 5
   cost: 0
   cooldown: 3
-  health: 20
+  health: 100
   model: {fileID: 1363470853356998786, guid: 229fab40e4ace4d469b10a6376bffa26, type: 3}
   trait1: 0
   trait2: 0
