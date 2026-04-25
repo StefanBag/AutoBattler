@@ -7423,8 +7423,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1724957387}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.25199997}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -12834,12 +12834,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   texts:
-  - Welcome to your first fight we are the Akatsuki!
-  - "Your courage is admirable\u2026 but it won\u2019t save you."
-  - "Stand your ground if you wish\u2026 the Akatsuki do not hold back."
-  - "Few survive their first encounter with us\u2026 let\u2019s see if you\u2019re
-    different."
-  - "Remember this moment\u2026 it\u2019s the last calm before the fight."
+  - "Many sought this wealth\u2026 none left with it."
+  - "Gold, gems, and bones\u2026 all claimed by dragonfire."
+  - "Courage brought you here\u2026 it won\u2019t carry you out."
+  - "Turn back now\u2026 or be buried with the rest."
   - "Let\u2019s see if your strength matches your confidence."
 --- !u!114 &397572134
 MonoBehaviour:
@@ -13084,13 +13082,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   texts:
-  - Welcome to your first fight we are the Akatsuki!
-  - "Your courage is admirable\u2026 but it won\u2019t save you."
-  - "Stand your ground if you wish\u2026 the Akatsuki do not hold back."
-  - "Few survive their first encounter with us\u2026 let\u2019s see if you\u2019re
-    different."
-  - "Remember this moment\u2026 it\u2019s the last calm before the fight."
-  - "Let\u2019s see if your strength matches your confidence."
+  - "Gold, gems, and bones\u2026 all claimed by dragonfire."
+  - "Many sought this wealth\u2026 none left with it."
+  - "Your journey ends here\u2026 in flame and ruin."
+  - "Courage brought you here\u2026 it won\u2019t carry you out."
+  - "This treasure has a cost\u2026 and you are the payment."
+  - "This is your final test\u2026 and your final mistake."
 --- !u!114 &403323958
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22305,7 +22302,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: f95c4ca13f1ab2748b8f41c77db81299, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 94fc09b97bc341443b56680a8d180353, type: 2}
+      objectReference: {fileID: 2100000, guid: 3d965b359fc193448b1781b6e62c6a9a, type: 2}
     - target: {fileID: 919132149155446097, guid: f95c4ca13f1ab2748b8f41c77db81299, type: 3}
       propertyPath: m_Name
       value: Stylized_Statue_4
@@ -41469,7 +41466,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: c59a1f0f56e40774294a445b8965d7ab, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 94fc09b97bc341443b56680a8d180353, type: 2}
+      objectReference: {fileID: 2100000, guid: 3d965b359fc193448b1781b6e62c6a9a, type: 2}
     - target: {fileID: 919132149155446097, guid: c59a1f0f56e40774294a445b8965d7ab, type: 3}
       propertyPath: m_Name
       value: Stylized_Statue_1
@@ -47772,7 +47769,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1559202630
 MonoBehaviour:
   m_ObjectHideFlags: 0

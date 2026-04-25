@@ -20,4 +20,4 @@ MonoBehaviour:
   health: 300
   model: {fileID: 9204128808516900346, guid: d13b16839fc97a742ac5c5a8f5628542, type: 3}
   trait1: 1
-  trait2: 3
+  trait2: 4

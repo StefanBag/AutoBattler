@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class BuyUnits : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class BuyUnits : MonoBehaviour
     public AudioSource audioSource;
     private TextMeshProUGUI unitNameText;
     private TextMeshProUGUI priceText;
+    private Graphic classSlot1;
+    private Graphic classSlot2;
     public Character character;
 
     void Start()
@@ -16,6 +19,8 @@ public class BuyUnits : MonoBehaviour
         character = FindFirstObjectByType<Character>();
         unitNameText = transform.Find("UnitName").GetComponent<TextMeshProUGUI>();
         priceText = transform.Find("Price").GetComponent<TextMeshProUGUI>();
+        classSlot1 = transform.Find("ClassSlot1").GetComponent<Graphic>();
+        classSlot2 = transform.Find("ClassSlot2").GetComponent<Graphic>();
 
         GameObject bench = GameObject.Find("FriendlyBench");
         if (bench != null)
@@ -39,6 +44,7 @@ public class BuyUnits : MonoBehaviour
         {
             unitNameText.text = unit.unit_name;
             priceText.text = $"${unit.cost}";
+            SetClassSlotColors();
         }
     }
 
@@ -91,6 +97,40 @@ public class BuyUnits : MonoBehaviour
 
             if (ai != null)
                 unit = ai.unit_data;
+        }
+    }
+
+    void SetClassSlotColors()
+    {
+        if (unit == null) return;
+
+        SetClassSlotColor(classSlot1, unit.trait1);
+        SetClassSlotColor(classSlot2, unit.trait2);
+    }
+
+    void SetClassSlotColor(Graphic classSlot, UnitTrait trait)
+    {
+        if (classSlot == null) return;
+
+        classSlot.color = GetTraitColor(trait);
+    }
+
+    Color GetTraitColor(UnitTrait trait)
+    {
+        switch (trait)
+        {
+            case UnitTrait.Sun:
+                return Color.yellow;
+            case UnitTrait.Demon:
+                return Color.red;
+            case UnitTrait.Ocean:
+                return Color.blue;
+            case UnitTrait.Nature:
+                return Color.green;
+            case UnitTrait.Fairy:
+                return new Color(1f, 0.4f, 0.8f);
+            default:
+                return Color.white;
         }
     }
 
