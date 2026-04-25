@@ -15078,7 +15078,6 @@ GameObject:
   - component: {fileID: 473599821}
   - component: {fileID: 473599820}
   - component: {fileID: 473599819}
-  - component: {fileID: 473599823}
   - component: {fileID: 473599822}
   m_Layer: 5
   m_Name: Canvas
@@ -15192,21 +15191,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &473599823
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 473599817}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9a7457e5494f442d9ef23b5f715d1b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  team: 1
-  isOnBench: 0
-  unit_data: {fileID: 11400000, guid: 2cfb7cc6227de490f8335f8ca02e5a38, type: 2}
 --- !u!1 &480732423
 GameObject:
   m_ObjectHideFlags: 0

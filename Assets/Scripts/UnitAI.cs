@@ -135,6 +135,7 @@ public class UnitAI : MonoBehaviour
             if (unit == this) continue;
             if (!unit.gameObject.activeInHierarchy) continue;
             if (!unit.enabled) continue;
+            if (unit.isOnBench) continue;
             if (unit.team != enemyTeam) continue;
             if (IsShopTemplate(unit.gameObject)) continue;
 

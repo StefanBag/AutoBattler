@@ -44,6 +44,10 @@ public class FightPhase : MonoBehaviour
         if (fightActive) return;
         fightActive = true;
 
+        Character character = FindFirstObjectByType<Character>();
+        if (character != null)
+            character.active = false;
+
         UnitAI[] allUnits = FindObjectsByType<UnitAI>(FindObjectsSortMode.None);
         List<UnitAI> boardUnits = new List<UnitAI>();
 
@@ -52,7 +56,7 @@ public class FightPhase : MonoBehaviour
             if (unit == null) continue;
             if (IsShopTemplate(unit.gameObject)) continue;
 
-            if (IsOnBench(unit.gameObject))
+            if (IsBenchUnit(unit))
             {
                 SetBenchUnitState(unit, false);
                 unit.StopCombat();
@@ -164,8 +168,8 @@ public class FightPhase : MonoBehaviour
 
             unit.StopCombat();
 
-            if (IsOnBench(unit.gameObject))
-                SetBenchUnitState(unit, true);
+            if (IsBenchUnit(unit))
+                SetBenchUnitState(unit, false);
         }
 
         string message = playerWon ? "You Win!" : "You Lose!";
@@ -198,6 +202,11 @@ public class FightPhase : MonoBehaviour
                 return true;
         }
         return false;
+    }
+
+    bool IsBenchUnit(UnitAI unit)
+    {
+        return unit != null && (unit.isOnBench || IsOnBench(unit.gameObject));
     }
 
     bool IsShopTemplate(GameObject obj)

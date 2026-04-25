@@ -45,13 +45,15 @@ public class Character : MonoBehaviour
 
     void Update()
     {
-        
+        if (!active) return;
+
         Interact();
-        
     }
 
     public void Interact()
     {
+        if (!active) return;
+
         RaycastHit hit;
         int layerMask = 1 << LayerMask.NameToLayer("Interactable");
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
