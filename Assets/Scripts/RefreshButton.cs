@@ -8,6 +8,7 @@ public class RefreshButton : MonoBehaviour
 
         foreach (Transform child in shopButtons)
         {
+            child.gameObject.SetActive(true);
             BuyUnits buyUnit = child.GetComponent<BuyUnits>();
             if (buyUnit != null)
                 buyUnit.Button_Setup();
