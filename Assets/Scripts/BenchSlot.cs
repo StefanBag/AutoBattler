@@ -1,3 +1,4 @@
+// BenchSlot.cs
 using UnityEngine;
 
 public class BenchSlot : Interactor
@@ -39,6 +40,9 @@ public class BenchSlot : Interactor
                 ai.isOnBench = false;
 
             unit = null;
+
+            // Unit left bench — refresh traits
+            TraitSystem.Instance?.RefreshTraits();
         }
     }
 
@@ -57,5 +61,8 @@ public class BenchSlot : Interactor
         UnitAI ai = new_unit.GetComponent<UnitAI>();
         if (ai != null)
             ai.isOnBench = true;
+
+        // Unit added to bench — refresh traits
+        TraitSystem.Instance?.RefreshTraits();
     }
 }

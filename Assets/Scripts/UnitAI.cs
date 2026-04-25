@@ -1,3 +1,4 @@
+// UnitAI.cs
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -7,8 +8,6 @@ public class UnitAI : MonoBehaviour
 {
     [Header("Identity")]
     public UnitTeam team = UnitTeam.Player;
-    public UnitTrait trait1 = UnitTrait.Sun;
-    public UnitTrait trait2 = UnitTrait.Ocean;
 
     [Header("State")]
     public bool isOnBench = false;
@@ -23,6 +22,11 @@ public class UnitAI : MonoBehaviour
 
     protected UnitAnimator unitAnimator;
     private Transform unitsFolder;
+
+    // Runtime buff — never touches the ScriptableObject
+    private int buffHealth = 0;
+    private int buffDamage = 0;
+    private bool buffApplied = false;
 
     protected virtual void Awake()
     {
@@ -70,17 +74,16 @@ public class UnitAI : MonoBehaviour
 
     protected virtual void Attack(Transform target)
     {
-        unitAnimator?.TriggerAttack();
-
         UnitAI targetUnit = target.GetComponent<UnitAI>();
         if (targetUnit != null)
-            targetUnit.TakeDamage(unit_data.damage);
+            targetUnit.TakeDamage(unit_data.damage + buffDamage);
+
+        unitAnimator?.StartAttackAnim();
     }
 
     public virtual void TakeDamage(float damage)
     {
         currentHealth -= damage;
-
         if (currentHealth <= 0f)
             Die();
     }
@@ -94,6 +97,29 @@ public class UnitAI : MonoBehaviour
 
         gameObject.SetActive(false);
     }
+
+    // ── Trait Buff API ────────────────────────────────────────────
+    public void ApplyTraitBuff(int bonusHealth, int bonusDamage)
+    {
+        if (buffApplied) RemoveTraitBuff();
+
+        buffHealth = bonusHealth;
+        buffDamage = bonusDamage;
+        currentHealth += buffHealth;
+        buffApplied = true;
+    }
+
+    public void RemoveTraitBuff()
+    {
+        if (!buffApplied) return;
+
+        currentHealth -= buffHealth;
+        currentHealth = Mathf.Max(currentHealth, 1f);
+        buffHealth = 0;
+        buffDamage = 0;
+        buffApplied = false;
+    }
+    // ─────────────────────────────────────────────────────────────
 
     protected Transform FindClosestEnemy()
     {
@@ -133,7 +159,6 @@ public class UnitAI : MonoBehaviour
     {
         Vector3 direction = (target.position - transform.position).normalized;
         direction.y = 0f;
-
         if (direction != Vector3.zero)
             transform.rotation = Quaternion.LookRotation(direction);
     }
@@ -143,7 +168,6 @@ public class UnitAI : MonoBehaviour
         inCombat = true;
         currentTarget = null;
         attackTimer = 0f;
-
         isOnBench = false;
         transform.SetParent(null);
 

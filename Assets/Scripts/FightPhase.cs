@@ -1,3 +1,4 @@
+// FightPhase.cs
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
@@ -41,10 +42,10 @@ public class FightPhase : MonoBehaviour
     public void StartFight()
     {
         if (fightActive) return;
-
         fightActive = true;
 
         UnitAI[] allUnits = FindObjectsByType<UnitAI>(FindObjectsSortMode.None);
+        List<UnitAI> boardUnits = new List<UnitAI>();
 
         foreach (UnitAI unit in allUnits)
         {
@@ -61,8 +62,7 @@ public class FightPhase : MonoBehaviour
                 unit.enabled = true;
 
                 NavMeshAgent agent = unit.GetComponent<NavMeshAgent>();
-                if (agent != null)
-                    agent.enabled = true;
+                if (agent != null) agent.enabled = true;
 
                 Rigidbody rb = unit.GetComponent<Rigidbody>();
                 if (rb != null)
@@ -73,9 +73,14 @@ public class FightPhase : MonoBehaviour
                     rb.angularVelocity = Vector3.zero;
                 }
 
+                boardUnits.Add(unit);
                 unit.StartCombat();
             }
         }
+
+        // Evaluate traits before combat begins
+        if (TraitSystem.Instance != null)
+            TraitSystem.Instance.EvaluateTraits(boardUnits);
 
         if (fightRoutine != null)
             StopCoroutine(fightRoutine);
@@ -91,7 +96,6 @@ public class FightPhase : MonoBehaviour
 
             bool anyPlayerAlive = false;
             bool anyEnemyAlive = false;
-
             List<string> playerNames = new List<string>();
 
             UnitAI[] allUnits = FindObjectsByType<UnitAI>(FindObjectsSortMode.None);
@@ -109,9 +113,7 @@ public class FightPhase : MonoBehaviour
                     playerNames.Add(unit.name);
                 }
                 else if (unit.team == UnitTeam.Enemy)
-                {
                     anyEnemyAlive = true;
-                }
             }
 
             Debug.Log("Players alive: " + anyPlayerAlive + " | Enemies alive: " + anyEnemyAlive);
@@ -134,7 +136,6 @@ public class FightPhase : MonoBehaviour
     void EndFight(bool playerWon)
     {
         if (!fightActive) return;
-
         fightActive = false;
 
         if (fightRoutine != null)
@@ -172,7 +173,6 @@ public class FightPhase : MonoBehaviour
             if (slot != null && slot.unit == obj)
                 return true;
         }
-
         return false;
     }
 
@@ -196,8 +196,7 @@ public class FightPhase : MonoBehaviour
             if (agent != null && agent.isActiveAndEnabled && agent.isOnNavMesh)
                 agent.ResetPath();
 
-            if (agent != null)
-                agent.enabled = false;
+            if (agent != null) agent.enabled = false;
 
             if (rb != null)
             {
@@ -219,9 +218,7 @@ public class FightPhase : MonoBehaviour
                 rb.angularVelocity = Vector3.zero;
             }
 
-            if (agent != null)
-                agent.enabled = true;
-
+            if (agent != null) agent.enabled = true;
             unit.enabled = true;
         }
     }

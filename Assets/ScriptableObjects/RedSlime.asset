@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 33606eb5a43d18f4e8db473a8a9e098f, type: 3}
-  m_Name: Soldier
+  m_Name: RedSlime
   m_EditorClassIdentifier: 
-  unit_name: Soldier
-  damage: 30
-  range: 5
-  cost: 20
+  unit_name: RedSlime
+  damage: 20
+  range: 3
+  cost: 0
   cooldown: 3
-  health: 50
-  model: {fileID: 1281914457622604, guid: 4bc1a69d8733fc049baca07c8bee0cde, type: 3}
-  trait1: 1
-  trait2: 2
+  health: 200
+  model: {fileID: 1931298151966786, guid: 928a1377c1cd4515b208fef3a396b8ea, type: 3}
+  trait1: 0
+  trait2: 0

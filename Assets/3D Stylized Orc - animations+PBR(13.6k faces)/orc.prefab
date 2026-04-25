@@ -30155,7 +30155,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: -0, w: -0.7071068}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: -8549690836703394644}
@@ -30201,6 +30201,7 @@ MonoBehaviour:
   team: 0
   trait1: 1
   trait2: 3
+  isOnBench: 0
   unit_data: {fileID: 11400000, guid: 79dab78ccb0bc3b4ca4acd90f6870759, type: 2}
 --- !u!195 &3688867557342212362
 NavMeshAgent:
