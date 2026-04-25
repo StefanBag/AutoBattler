@@ -97,6 +97,7 @@ public class FightPhase : MonoBehaviour
             bool anyPlayerAlive = false;
             bool anyEnemyAlive = false;
             List<string> playerNames = new List<string>();
+            List<string> enemyNames = new List<string>();
 
             UnitAI[] allUnits = FindObjectsByType<UnitAI>(FindObjectsSortMode.None);
 
@@ -105,15 +106,18 @@ public class FightPhase : MonoBehaviour
                 if (unit == null) continue;
                 if (!unit.gameObject.activeInHierarchy) continue;
                 if (IsShopTemplate(unit.gameObject)) continue;
-                if (IsOnBench(unit.gameObject)) continue;
+                if (unit.isOnBench || IsOnBench(unit.gameObject)) continue;
 
                 if (unit.team == UnitTeam.Player)
                 {
                     anyPlayerAlive = true;
-                    playerNames.Add(unit.name);
+                    playerNames.Add(unit.name + " [parent=" + (unit.transform.parent != null ? unit.transform.parent.name : "<root>") + "]");
                 }
                 else if (unit.team == UnitTeam.Enemy)
+                {
                     anyEnemyAlive = true;
+                    enemyNames.Add(unit.name + " [parent=" + (unit.transform.parent != null ? unit.transform.parent.name : "<root>") + "]");
+                }
             }
 
             Debug.Log("Players alive: " + anyPlayerAlive + " | Enemies alive: " + anyEnemyAlive);
@@ -122,6 +126,13 @@ public class FightPhase : MonoBehaviour
             {
                 Debug.Log("PLAYER UNITS COUNTED:");
                 foreach (string name in playerNames)
+                    Debug.Log(" - " + name);
+            }
+
+            if (enemyNames.Count > 0)
+            {
+                Debug.Log("ENEMY UNITS COUNTED:");
+                foreach (string name in enemyNames)
                     Debug.Log(" - " + name);
             }
 
@@ -157,10 +168,23 @@ public class FightPhase : MonoBehaviour
                 SetBenchUnitState(unit, true);
         }
 
+        string message = playerWon ? "You Win!" : "You Lose!";
+
         if (resultText != null)
         {
-            resultText.gameObject.SetActive(true);
-            resultText.text = playerWon ? "You Win!" : "You Lose!";
+            Transform t = resultText.transform;
+            while (t != null)
+            {
+                if (!t.gameObject.activeSelf) t.gameObject.SetActive(true);
+                t = t.parent;
+            }
+
+            resultText.text = message;
+            resultText.color = playerWon ? Color.green : Color.red;
+        }
+        else
+        {
+            Debug.LogWarning("[FightPhase] resultText is not assigned — assign it in the Inspector to show '" + message + "' on screen.");
         }
 
         StartCoroutine(ReloadScene());
