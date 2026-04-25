@@ -19,5 +19,5 @@ MonoBehaviour:
   cooldown: 3
   health: 200
   model: {fileID: 1931298151966786, guid: 928a1377c1cd4515b208fef3a396b8ea, type: 3}
-  trait1: 0
+  trait1: 1
   trait2: 0

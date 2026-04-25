@@ -5955,7 +5955,7 @@ RectTransform:
   m_Father: {fileID: 1724957387}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.748, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -19116,7 +19116,27 @@ MonoBehaviour:
     requiredCount: 3
     bonusHealth: 20
     bonusDamage: 20
-    traitColor: {r: 0, g: 0.1187284, b: 1, a: 0}
+    traitColor: {r: 1, g: 0.25703597, b: 0, a: 0}
+  - trait: 0
+    requiredCount: 3
+    bonusHealth: 30
+    bonusDamage: 0
+    traitColor: {r: 0.9339297, g: 1, b: 0, a: 0}
+  - trait: 2
+    requiredCount: 3
+    bonusHealth: 15
+    bonusDamage: 15
+    traitColor: {r: 0.05724907, g: 0, b: 1, a: 0}
+  - trait: 3
+    requiredCount: 3
+    bonusHealth: 25
+    bonusDamage: 5
+    traitColor: {r: 0.23760092, g: 1, b: 0, a: 0}
+  - trait: 4
+    requiredCount: 3
+    bonusHealth: 0
+    bonusDamage: 30
+    traitColor: {r: 1, g: 0, b: 0.64433, a: 0}
 --- !u!4 &649356019
 Transform:
   m_ObjectHideFlags: 0
@@ -42318,7 +42338,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1559202630
 MonoBehaviour:
   m_ObjectHideFlags: 0

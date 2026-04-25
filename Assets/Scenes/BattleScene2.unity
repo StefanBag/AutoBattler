@@ -11493,6 +11493,76 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &444615721
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 444615723}
+  - component: {fileID: 444615722}
+  m_Layer: 0
+  m_Name: TraitSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &444615722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 444615721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7acb8c11e0f2943eda065df8f6820df8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  traitBonuses:
+  - trait: 1
+    requiredCount: 3
+    bonusHealth: 20
+    bonusDamage: 20
+    traitColor: {r: 1, g: 0.25703597, b: 0, a: 0}
+  - trait: 0
+    requiredCount: 3
+    bonusHealth: 30
+    bonusDamage: 0
+    traitColor: {r: 0.9339297, g: 1, b: 0, a: 0}
+  - trait: 2
+    requiredCount: 3
+    bonusHealth: 15
+    bonusDamage: 15
+    traitColor: {r: 0.05724907, g: 0, b: 1, a: 0}
+  - trait: 3
+    requiredCount: 3
+    bonusHealth: 25
+    bonusDamage: 5
+    traitColor: {r: 0.23760092, g: 1, b: 0, a: 0}
+  - trait: 4
+    requiredCount: 3
+    bonusHealth: 0
+    bonusDamage: 30
+    traitColor: {r: 1, g: 0, b: 0.64433, a: 0}
+--- !u!4 &444615723
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 444615721}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -19.48263, y: -1.2219859, z: 24.797386}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &453627118
 Mesh:
   m_ObjectHideFlags: 0
@@ -12164,8 +12234,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   team: 1
-  trait1: 0
-  trait2: 2
   isOnBench: 0
   unit_data: {fileID: 11400000, guid: 2cfb7cc6227de490f8335f8ca02e5a38, type: 2}
 --- !u!1 &480732423
@@ -51759,3 +51827,4 @@ SceneRoots:
   - {fileID: 1010273108}
   - {fileID: 1142650798}
   - {fileID: 2082875895}
+  - {fileID: 444615723}

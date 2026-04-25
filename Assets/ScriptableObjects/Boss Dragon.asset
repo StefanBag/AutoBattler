@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Boss Dragon
   m_EditorClassIdentifier: 
   unit_name: BossDragon
-  damage: 120
+  damage: 60
   range: 5
   cost: 20
   cooldown: 3
-  health: 100
-  model: {fileID: 1281914457622604, guid: 4bc1a69d8733fc049baca07c8bee0cde, type: 3}
+  health: 300
+  model: {fileID: 135744, guid: 4e7d7ecd1eafb1746a1fcb020505943c, type: 3}
   trait1: 0
   trait2: 0

@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Red Dragon
   m_EditorClassIdentifier: 
   unit_name: RedDragon
-  damage: 80
+  damage: 40
   range: 5
   cost: 20
   cooldown: 3
-  health: 100
-  model: {fileID: 1281914457622604, guid: 4bc1a69d8733fc049baca07c8bee0cde, type: 3}
+  health: 200
+  model: {fileID: 132742, guid: a3e7850e56f7e2d4a8cb9e150f10c835, type: 3}
   trait1: 0
-  trait2: 0
+  trait2: 4
