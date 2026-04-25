@@ -187,7 +187,7 @@ public class FightPhase : MonoBehaviour
             Debug.LogWarning("[FightPhase] resultText is not assigned — assign it in the Inspector to show '" + message + "' on screen.");
         }
 
-        StartCoroutine(ReloadScene());
+        StartCoroutine(ReturnToLevelSelect(playerWon));
     }
 
     bool IsOnBench(GameObject obj)
@@ -247,10 +247,21 @@ public class FightPhase : MonoBehaviour
         }
     }
 
-    IEnumerator ReloadScene()
+    IEnumerator ReturnToLevelSelect(bool playerWon)
     {
         yield return new WaitForSecondsRealtime(resultDisplayTime);
         Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+        if (playerWon)
+        {
+            Character character = FindFirstObjectByType<Character>();
+            int currentLevel = character != null
+                ? character.level
+                : 0;
+
+            Character.SetCurrentLevel(currentLevel + 1);
+        }
+
+        SceneManager.LoadScene("LevelSelectScene");
     }
 }
