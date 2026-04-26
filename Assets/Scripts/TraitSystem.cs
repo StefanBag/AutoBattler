@@ -1,6 +1,7 @@
 // TraitSystem.cs
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class TraitBonus
@@ -9,7 +10,6 @@ public class TraitBonus
     public int requiredCount = 3;
     public int bonusHealth;
     public int bonusDamage;
-    public Color traitColor = Color.white;
 }
 
 public class TraitSystem : MonoBehaviour
@@ -18,6 +18,11 @@ public class TraitSystem : MonoBehaviour
 
     [Header("Define your trait bonuses here in the Inspector")]
     public List<TraitBonus> traitBonuses = new List<TraitBonus>();
+
+    [Header("UI")]
+    public Slider traitProgressSlider;
+
+    private Image traitProgressFillImage;
 
     private HashSet<UnitTrait> activeTraits = new HashSet<UnitTrait>();
 
@@ -64,12 +69,15 @@ public class TraitSystem : MonoBehaviour
             TraitBonus bonus = GetBonus(dominantTrait.Value);
             if (bonus != null)
             {
-                float fill = (float)dominantCount / bonus.requiredCount;
-                PowerBar.Instance?.UpdateBar(fill, bonus.traitColor);
+                float fill = bonus.requiredCount > 0 ? (float)dominantCount / bonus.requiredCount : 0f;
+                Color traitColor = GetTraitColor(dominantTrait.Value);
+                UpdateTraitProgressSlider(fill, traitColor);
+                PowerBar.Instance?.UpdateBar(fill, traitColor);
             }
         }
         else
         {
+            UpdateTraitProgressSlider(0f, Color.grey);
             PowerBar.Instance?.ResetBar();
         }
 
@@ -146,8 +154,40 @@ public class TraitSystem : MonoBehaviour
         groups[trait].Add(unit);
     }
 
+    private void UpdateTraitProgressSlider(float fillAmount, Color fillColor)
+    {
+        if (traitProgressSlider == null) return;
+
+        traitProgressSlider.value = Mathf.Clamp01(fillAmount);
+
+        if (traitProgressFillImage == null && traitProgressSlider.fillRect != null)
+            traitProgressFillImage = traitProgressSlider.fillRect.GetComponent<Image>();
+
+        if (traitProgressFillImage != null)
+            traitProgressFillImage.color = fillColor;
+    }
+
     private TraitBonus GetBonus(UnitTrait trait)
     {
         return traitBonuses.Find(b => b.trait == trait);
+    }
+
+    private Color GetTraitColor(UnitTrait trait)
+    {
+        switch (trait)
+        {
+            case UnitTrait.Sun:
+                return Color.yellow;
+            case UnitTrait.Demon:
+                return Color.red;
+            case UnitTrait.Ocean:
+                return Color.blue;
+            case UnitTrait.Nature:
+                return Color.green;
+            case UnitTrait.Fairy:
+                return new Color(1f, 0.4f, 0.8f);
+            default:
+                return Color.white;
+        }
     }
 }
