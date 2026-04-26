@@ -12055,7 +12055,7 @@ MonoBehaviour:
     requiredCount: 3
     bonusHealth: 0
     bonusDamage: 30
-  traitProgressSlider: {fileID: 0}
+  traitProgressSlider: {fileID: 381269391}
 --- !u!4 &444615723
 Transform:
   m_ObjectHideFlags: 0
