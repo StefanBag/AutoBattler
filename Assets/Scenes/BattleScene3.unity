@@ -10600,7 +10600,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: 2
-  money: 300
+  money: 250
   holding: {fileID: 0}
   active: 1
   selectClip: {fileID: 8300000, guid: 42c2424625ba74f0b95d502d1bd855bf, type: 3}
