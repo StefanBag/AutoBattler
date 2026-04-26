@@ -18083,7 +18083,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2e353d9c741d4e8eb7d43a434f4b14e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buyPhaseDuration: 10
+  buyPhaseDuration: 30
   playerHudCanvas: {fileID: 1559202629}
   countdownText: {fileID: 487425468}
   fightPhase: {fileID: 614821123}
