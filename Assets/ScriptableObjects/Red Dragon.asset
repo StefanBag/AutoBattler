@@ -16,8 +16,8 @@ MonoBehaviour:
   damage: 40
   range: 5
   cost: 20
-  cooldown: 3
-  health: 200
+  cooldown: 4
+  health: 150
   model: {fileID: 132742, guid: a3e7850e56f7e2d4a8cb9e150f10c835, type: 3}
   trait1: 0
   trait2: 4

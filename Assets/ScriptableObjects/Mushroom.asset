@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Mushroom
   m_EditorClassIdentifier: 
   unit_name: Mushroom
-  damage: 50
+  damage: 20
   range: 5
   cost: 70
-  cooldown: 6
-  health: 120
+  cooldown: 5
+  health: 400
   model: {fileID: 1997902569578628670, guid: c3c76a247c7e43b19a40ebfcfefa8f19, type: 3}
   trait1: 3
   trait2: 0
