@@ -61,7 +61,7 @@ public class LevelButton : MonoBehaviour
             {
                 Line.color = colors.Complete;
             }
-            button.interactable = true;
+            button.interactable = false;
         }
         else if (characterLevel  == level)
         {

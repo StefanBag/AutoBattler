@@ -12,10 +12,6 @@ public class UnitAI : MonoBehaviour
     [Header("State")]
     public bool isOnBench = false;
 
-    [Header("Visuals")]
-    public Transform visualRoot;
-    public float visualYawOffset = 0f;
-
     [Header("NavMesh")]
     protected NavMeshAgent agent;
     public UnitData unit_data;
@@ -37,23 +33,10 @@ public class UnitAI : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         currentHealth = unit_data.health;
         unitAnimator = GetComponent<UnitAnimator>();
-        ApplyVisualYawOffset();
 
         GameObject unitsObj = GameObject.Find("Units");
         if (unitsObj != null)
             unitsFolder = unitsObj.transform;
-    }
-
-    void OnValidate()
-    {
-        ApplyVisualYawOffset();
-    }
-
-    void ApplyVisualYawOffset()
-    {
-        if (visualRoot == null) return;
-
-        visualRoot.localRotation = Quaternion.Euler(visualRoot.localEulerAngles.x, visualYawOffset, visualRoot.localEulerAngles.z);
     }
 
     protected virtual void Update()

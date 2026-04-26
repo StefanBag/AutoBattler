@@ -34,6 +34,7 @@ public class TraitSystem : MonoBehaviour
         foreach (UnitAI unit in boardUnits)
         {
             if (unit == null) continue;
+            if (unit.team != UnitTeam.Player) continue;
 
             AddToGroup(traitGroups, unit.unit_data.trait1, unit);
             if (unit.unit_data.trait2 != unit.unit_data.trait1)
@@ -121,6 +122,7 @@ public class TraitSystem : MonoBehaviour
             if (unit == null) continue;
             if (!unit.gameObject.activeInHierarchy) continue;
             if (unit.isOnBench) continue; // skip bench units
+            if (unit.team != UnitTeam.Player) continue; // only player units count toward player trait buffs
             if (IsShopTemplate(unit.gameObject)) continue;
 
             boardUnits.Add(unit);
