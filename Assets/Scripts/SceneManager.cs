@@ -9,6 +9,10 @@ public class SceneManagement : MonoBehaviour
     {
         SceneManager.LoadScene("LevelSelectScene");
     }
+    public void Tutorial()
+    {
+        SceneManager.LoadScene("TutorialScene");
+    }
     public void QuitGame()
     {
         Application.Quit();

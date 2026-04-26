@@ -9,6 +9,10 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene("LevelSelectScene");
     }
+    public void Tutorial()
+    {
+        SceneManager.LoadScene("TutorialScene");
+    }
     public void QuitGame()
     {
         Application.Quit();
